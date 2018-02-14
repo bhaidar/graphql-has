@@ -28,7 +28,9 @@ With the following steps you will generate the schema.graphql file, the typings 
 (Note: It will be improved soon)
 
 Step 1. Edit your schema and/or create your custom GraphQL types
+
 Step 2. Run the server
+
 Step 3. Run the `prepare-graphql` command
 
 **Run Application**
