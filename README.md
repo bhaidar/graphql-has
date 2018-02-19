@@ -1,5 +1,7 @@
 ### TypeScript, Express, GraphQL microservice seed
 
+[![Build Status](https://travis-ci.org/marcellobarile/typescript-express-graphql-seed.svg?branch=master)](https://travis-ci.org/marcellobarile/typescript-express-graphql-seed)
+
 **Tech. stack:**
 ---
 1. Webpack + TypeScript
