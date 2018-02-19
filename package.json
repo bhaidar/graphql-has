@@ -19,7 +19,7 @@
     "test2": "npm run build && cross-env NODE_ENV=stage NODE_ENV_ID=2 node build/compiled",
     "test3": "npm run build && cross-env NODE_ENV=stage NODE_ENV_ID=3 node build/compiled",
     "prod": "npm run check-vuln && npm run build && cross-env NODE_ENV=production NODE_ENV_ID=1 node build/compiled",
-    "check-vuln": "nsp check --filter",
+    "check-vuln": "nsp check --filter 5",
     "postinstall": "npm run check-vuln && npm run prepare-folders && node node_modules/typings/dist/bin.js install --overwrite && npm run hints",
     "build": "npm run clean && npm run prepare-folders && node node_modules/webpack/bin/webpack.js --config config/webpack.config.js",
     "prepare-folders": "mkdirp .tmp && rimraf node_modules/@types/graphql",
