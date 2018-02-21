@@ -1,0 +1,32 @@
+scalar Upload
+
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
+
+type Query {
+  getFortuneCookie: String
+}
+
+type Mutation {
+  uploadDocumentBin(file: Upload!): File!
+}
+
+type Subscription {
+  onData: SubscriptionResult
+}
+
+type SubscriptionResult {
+  id: String,
+  data: String
+}
+
+type File {
+  id: ID!
+  path: String!
+  filename: String!
+  mimetype: String!
+  encoding: String!
+}
