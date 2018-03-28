@@ -6,10 +6,6 @@ schema {
   subscription: Subscription
 }
 
-type Query {
-  getFortuneCookie: String
-}
-
 type Mutation {
   uploadDocumentBin(file: Upload!): File!
 }
@@ -21,12 +17,4 @@ type Subscription {
 type SubscriptionResult {
   id: String,
   data: String
-}
-
-type File {
-  id: ID!
-  path: String!
-  filename: String!
-  mimetype: String!
-  encoding: String!
 }
