@@ -14,7 +14,7 @@ let log = debug('modern-express:server');
 log.log = console.log.bind(console);
 
 const server = http.createServer(app);
-server.listen(Conf.ServerPort, () => {
+server.listen(Conf.ServerPort, Conf.ServerAddr, () => {
   // WebSocket Subscription server
   new SubscriptionServer({
     execute,
@@ -27,7 +27,7 @@ server.listen(Conf.ServerPort, () => {
 });
 
 const welcomeMessage = ` => Service up and running <= `;
-const serverAddressMessage = ` (HTTP + WS) Listening on http://localhost:${Conf.ServerPort} `;
+const serverAddressMessage = ` (HTTP + WS) Listening on http://${Conf.ServerAddr}:${Conf.ServerPort} `;
 const serverKeyMessage = ` [Service key] ${Conf.ServerKey} `;
 console.log('\n');
 console.log(chalk.white.bgMagentaBright('                                          '));

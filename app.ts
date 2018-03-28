@@ -22,13 +22,14 @@ const app = express();
 
 // Store some confs.
 Conf.ServerKey = `BFF:doc-app:${process.env.NODE_ENV}-${process.env.NODE_ENV_ID}`;
+Conf.ServerAddr = process.env.ADDR || Conf.DefaultBFFAddr;
 Conf.ServerPort = process.env.PORT || String(Conf.DefaultBFFPort);
 Conf.ServerEnv = process.env.NODE_ENV || Common.constants.ENV_DEV;
 Conf.ServerEnvId = process.env.NODE_ENV_ID;
 
 // CORS options
 var corsOptions = {
-    origin: [`http://localhost:${Conf.FrontEndPort}`, `http://localhost:${Conf.ServerPort}`],
+    origin: [`http://${Conf.ServerAddr}:${Conf.FrontEndPort}`, `http://${Conf.ServerAddr}:${Conf.ServerPort}`],
     credentials: true,
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
@@ -65,7 +66,7 @@ if (Conf.ServerEnv === Common.constants.ENV_DEV) {
     // Enabling GraphiQL on dev env.
     app.get('/graphiql', graphiqlExpress({
         endpointURL: '/graphql',
-        subscriptionsEndpoint: `ws://localhost:${Conf.ServerPort}/subscriptions`,
+        subscriptionsEndpoint: `ws://${Conf.ServerAddr}:${Conf.ServerPort}/subscriptions`,
     }));
 }
 
