@@ -39,7 +39,9 @@ npm run build:prod
 With the following steps you will generate the schema.graphql file, typings interfaces and fragments.
 
 Step 1. Edit your schema and/or create your custom GraphQL types
+
 Step 2. Run the server
+
 Step 3. Run `npm run prepare-graphql`
 
 **Run Application**
