@@ -21,11 +21,11 @@ import schema from './server/schemas/schema';
 const app = express();
 
 // Store some confs.
-Conf.ServerKey = `BFF:doc-app:${process.env.NODE_ENV}-${process.env.NODE_ENV_ID}`;
 Conf.ServerAddr = process.env.ADDR || Conf.DefaultBFFAddr;
 Conf.ServerPort = process.env.PORT || String(Conf.DefaultBFFPort);
-Conf.ServerEnv = process.env.NODE_ENV || Common.constants.ENV_DEV;
+Conf.ServerEnv = process.env.NODE_TARGET_ENV || Common.constants.ENV_DEV;
 Conf.ServerEnvId = process.env.NODE_ENV_ID;
+Conf.ServerKey = `BFF:doc-app:${Conf.ServerEnv}-${Conf.ServerEnvId}`;
 
 // CORS options
 var corsOptions = {

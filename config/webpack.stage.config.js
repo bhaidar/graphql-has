@@ -1,6 +1,6 @@
 const root = require('app-root-path').path;
 module.exports = {
-  mode: 'stage',
+  mode: 'development',
   entry: `${root}/bin/www.ts`,
   target: 'node',
   externals: [

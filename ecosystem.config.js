@@ -11,11 +11,13 @@ module.exports = {
       exec_mode           : "cluster",
       max_memory_restart  : "200M",
       env: {
-        NODE_ENV          : 'dev',
+        NODE_ENV          : 'development',
+        NODE_TARGET_ENV   : 'development',
         NODE_ENV_ID       : '1',
       },
       env_production : {
         NODE_ENV          : 'production',
+        NODE_TARGET_ENV   : 'production',
         NODE_ENV_ID       : '1',
       }
     },
