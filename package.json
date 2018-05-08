@@ -117,11 +117,11 @@
     "verbose": true,
     "testEnvironment": "node",
     "testPathIgnorePatterns": [
-      "/node_modules/",
-      "/dist/",
-      "/build/",
-      "/config/",
-      "/graphql/"
+      "<rootDir>/node_modules/",
+      "<rootDir>/dist/",
+      "<rootDir>/build/",
+      "<rootDir>/config/",
+      "<rootDir>/graphql/"
     ],
     "coverageReporters": [
       "lcov",
