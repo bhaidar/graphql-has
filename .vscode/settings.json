@@ -1,0 +1,8 @@
+{
+  "editor.renderControlCharacters": true,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "tslint.exclude": ["**/*.spec.ts","**/*.d.ts"]
+}

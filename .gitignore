@@ -67,6 +67,4 @@ typings/
 .next
 
 # GraphQL
-interfaces/
-schemas/fragments.js
 schema.graphql

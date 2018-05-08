@@ -10,17 +10,12 @@ import { FileUtils } from '../helpers/fileUtils';
 // Models
 // ...
 
+// Resolving Controllers
+import { FileUpload } from './upload/fileUpload';
+
 // Errors
 import { UploadError } from '../errors/uploadError';
-const processUpload = async (fileStream, ctx) => {
-  const { stream, filename, mimetype, encoding } = await fileStream;
-  const { id, path } = await FileUtils.storeFile({ stream, filename });
 
-  return new Promise((resolve, reject) => {
-    // Call the connector function
-    resolve({});
-  });
-}
 //
 // NOTE:
 // root = optional argument with the root object (could be set in app.ts)
@@ -36,14 +31,16 @@ const resolver = {
         return new Promise((resolve, reject) => {
           service
             .getOne()
-            .then(res => {
-              resolve( res[0].fortune.message );
+            .then((res: any) => {
+              resolve(res[0].fortune.message);
             });
         });
       }
     },
     Mutation: {
-      uploadDocumentBin: (root, { file, metadata }, ctx) => processUpload(file, ctx)
+      uploadDocumentBin: (root, { file, metadata }, ctx) =>
+        new FileUpload(ctx.cookie)
+          .processUpload(file, metadata, ctx)
     },
     Subscription: {
       onData: {

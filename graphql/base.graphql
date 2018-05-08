@@ -1,5 +1,11 @@
+#
+# Custom upload type
+#
 scalar Upload
 
+#
+# Schema wrapper
+#
 schema {
   query: Query
   mutation: Mutation
