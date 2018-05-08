@@ -41,9 +41,12 @@
     "TypeScript",
     "Apollo Server",
     "Apollo Engine",
-    "GraphQL"
+    "GraphQL",
+    "BFF",
+    "MicroService",
+    "WebService"
   ],
-  "author": "Marcello Barile",
+  "author": "Marcello Barile <marcello.barile@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@types/app-root-path": "^1.2.4",

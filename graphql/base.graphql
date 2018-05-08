@@ -12,10 +12,6 @@ schema {
   subscription: Subscription
 }
 
-type Query {
-  getFortuneCookie: String
-}
-
 type Mutation {
   uploadDocumentBin(file: Upload!): File!
 }

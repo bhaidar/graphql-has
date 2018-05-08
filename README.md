@@ -4,13 +4,14 @@
 
 **Tech. stack:**
 ---
-1. Webpack + TypeScript
-2. Express + ejs
+1. Webpack 4 + TypeScript 2.8
+2. Express 4 + ejs
 3. Apollo Server
 4. GraphQL / GraphQLi
 6. Lodash
 7. Request Promise
 5. NSP - Node Security Platform
+6. PM2 ready
 
 **Setup**
 ---
@@ -86,9 +87,12 @@ npm run check-vuln
 npm run test
 ```
 
-**Run Coverage**
+**Prod. PM2 first run**
 ---
-[TBD]
+```
+npm run pm2:prod:first-run
+```
+Remember to run `pm2 save` to dump the processes list
 
 **Manually install typings**
 ---
@@ -102,21 +106,48 @@ Even if deprecated, execute ```npm run install-typings``` to manually install ty
 ---
 ```
 ├── app.ts
+├── .tmp
+├── .vs
 ├── bin
 │   └── www.ts
 ├── build
 │   └── compiled
 ├── config
-│   └── webpack.config.js
+|   ├── apis
+|   |   ├── dev.js
+|   |   ├── index.js
+|   |   ├── prod.js
+|   |   └── test.js
+|   ├── common.ts
+|   ├── webpack.config.js
+|   ├── webpack.production.config.js
+│   └── webpack.stage.config.js
 ├── package.json
 ├── README.md
+├── graphql
+|   ├── types
+|   |   └── [...]
+|   ├── base.graphql
+|   └── index.ts
 ├── server
-│   ├── routes.ts
+|   ├── connectors
+|   ├── errors
+|   ├── helpers
+|   ├── resolvers
+|   ├── routes
+|   ├── schemas
 │   └── views
 │       ├── error.ejs
 │       └── index.ejs
-├── tsconfig.json
-└── typings.json
+├── .editorconfig
+├── .gitignore
+├── .graphqlconfig
+├── .travis.yml
+├── ecosystem.config.js
+├── package-lock.json
+├── package.json
+├── README
+└── tsconfig.json
 ```
 
 *This module was made possible thanks to [LearnMEAN.com](https://www.learnmean.com/)*
