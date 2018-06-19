@@ -10,7 +10,7 @@ COPY package.json .
 COPY package-lock.json .
 COPY yarn.lock .
 
-RUN yarn --production --ignore-scripts --prefer-offline
+RUN yarn --production --ignore-scripts
 RUN yarn
 
 ENV CI true
