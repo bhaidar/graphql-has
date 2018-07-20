@@ -1,9 +1,4 @@
 #
-# Custom upload type
-#
-scalar Upload
-
-#
 # Schema wrapper
 #
 schema {

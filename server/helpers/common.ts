@@ -2,7 +2,7 @@ import * as _ from 'lodash';
 import { spawn } from 'child_process';
 
 class Common {
-  static constants = {
+  public static constants = {
     ENV_DEV: 'development',
     ENV_TEST: 'stage',
     ENV_PROD: 'production',

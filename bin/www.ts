@@ -1,14 +1,13 @@
 /**
  * Module dependencies.
  */
-import { app, schema } from '../app';
+import { app } from '../app';
 import { Conf } from '../config/common';
-import { SubscriptionServer } from 'subscriptions-transport-ws';
-import { execute, subscribe } from 'graphql';
+// import { SubscriptionServer } from 'subscriptions-transport-ws';
+// import { execute, subscribe } from 'graphql';
 import * as fs from 'fs';
 import * as http from 'http';
 import * as debug from 'debug';
-import * as inquirer from 'inquirer';
 import chalk from 'chalk';
 
 // binding to console
@@ -18,6 +17,7 @@ log.log = console.log.bind(console);
 const server = http.createServer(app);
 server.listen(Conf.ServerPort, Conf.ServerAddr, () => {
   // WebSocket Subscription server
+  /*
   new SubscriptionServer({
     execute,
     subscribe,
@@ -26,6 +26,7 @@ server.listen(Conf.ServerPort, Conf.ServerAddr, () => {
     server: server,
     path: '/subscriptions',
   });
+  */
 });
 
 //
