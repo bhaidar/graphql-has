@@ -6,8 +6,8 @@
 ---
 1. Webpack 4 + TypeScript 2.8
 2. Express 4 + ejs
-3. Apollo Server
-4. GraphQL / GraphQLi
+3. Apollo Server 2.0
+4. GraphQL
 6. Lodash
 7. Request Promise
 5. NSP - Node Security Platform
