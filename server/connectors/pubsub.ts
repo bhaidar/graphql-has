@@ -1,5 +1,4 @@
-import { connect } from 'mqtt';
-import { MQTTPubSub } from 'graphql-mqtt-subscriptions';
+import { PubSub } from 'apollo-server';
 
 class PubSubManager {
   public static ON_DATA_MSG = 'onData';
@@ -16,26 +15,16 @@ class PubSubManager {
       throw new Error('Error: Instantiation failed: Use PubSubManager.getInstance() instead of new.');
     }
     PubSubManager._instance = this;
-    this.connect();
+    this._pubsub = new PubSub();
   }
 
-  public get pubsub(): MQTTPubSub {
+  public get pubsub(): any {
     return this._pubsub;
   }
 
-  public subscribe() { /* TBD */ }
-  public unsubscribe() { /* TBD */ }
-  public publish() { /* TBD */ }
-
-  private connect() {
-    const client = connect('mqtt://test.mosquitto.org', {
-      reconnectPeriod: 1000,
-    });
-
-    this._pubsub = new MQTTPubSub({
-      client,
-    });
-  }
+  public publish() { /* TODO: tbd */ }
+  public subscribe() { /* TODO: tbd */ }
+  public unsubscribe() { /* TODO: tbd */ }
 
 }
 

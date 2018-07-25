@@ -1,3 +1,6 @@
+// TODO: Check that For the upload: https://blog.apollographql.com/file-uploads-with-apollo-server-2-0-5db2f3f60675
+// is well implemented
+
 import { UploadError } from '../../errors/uploadError';
 import { FileUtils } from '../../helpers/fileUtils';
 

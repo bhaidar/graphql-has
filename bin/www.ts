@@ -2,9 +2,8 @@
  * Module dependencies.
  */
 import { app } from '../app';
+import { GraphQlServer } from '../server';
 import { Conf } from '../config/common';
-// import { SubscriptionServer } from 'subscriptions-transport-ws';
-// import { execute, subscribe } from 'graphql';
 import * as fs from 'fs';
 import * as http from 'http';
 import * as debug from 'debug';
@@ -14,25 +13,14 @@ import chalk from 'chalk';
 let log = debug('modern-express:server');
 log.log = console.log.bind(console);
 
-const server = http.createServer(app);
-server.listen(Conf.ServerPort, Conf.ServerAddr, () => {
-  // WebSocket Subscription server
-  /*
-  new SubscriptionServer({
-    execute,
-    subscribe,
-    schema,
-  }, {
-    server: server,
-    path: '/subscriptions',
-  });
-  */
-});
+const httpServer = http.createServer(app);
+GraphQlServer.createSubscription(httpServer);
+httpServer.listen(Conf.ServerPort, Conf.ServerAddr);
 
 //
 // EVENTS
 //
-server.on('error', (error: any) => {
+httpServer.on('error', (error: any) => {
   /**
    * Event listener for HTTP server "error" event.
    */
@@ -56,11 +44,11 @@ server.on('error', (error: any) => {
       throw error;
   }
 });
-server.on('listening', () => {
+httpServer.on('listening', () => {
   /**
    * Event listener for HTTP server "listening" event.
    */
-  const addr = server.address();
+  const addr = httpServer.address();
   const bind = (typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`);
   log(`Listening on ${bind}`);
 });

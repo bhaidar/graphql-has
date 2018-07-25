@@ -1,20 +1,9 @@
-import { GraphQLUpload } from 'apollo-upload-server';
-
 // Connectors
 import { PubSubManager } from '../connectors/pubsub';
 import { FortuneCookieService } from '../connectors/rest/fortune';
 
-// Misc.
-import { FileUtils } from '../helpers/fileUtils';
-
-// Models
-// ...
-
 // Resolving Controllers
-import { FileUpload } from './upload/fileUpload';
-
-// Errors
-import { UploadError } from '../errors/uploadError';
+// import { FileUpload } from './upload/fileUpload';
 
 //
 // NOTE:
@@ -23,7 +12,6 @@ import { UploadError } from '../errors/uploadError';
 // ctx = context object
 //
 const resolver = {
-    Upload: GraphQLUpload,
     Query: {
       getFortuneCookie() {
         console.log('Resolver:: getFortuneCookie');
@@ -38,9 +26,12 @@ const resolver = {
       }
     },
     Mutation: {
+      /*
+      For the upload: https://blog.apollographql.com/file-uploads-with-apollo-server-2-0-5db2f3f60675
       uploadDocumentBin: (root, { file, metadata }, ctx) =>
         new FileUpload(ctx.cookie)
           .processUpload(file, metadata, ctx)
+      */
     },
     Subscription: {
       onData: {

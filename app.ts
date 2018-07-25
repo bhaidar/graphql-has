@@ -48,26 +48,13 @@ GraphQlServer.createServer(
   isDev,
 );
 
-/*
-app.use(
-  '/graphql',
-  cors(corsOptions),
-  bodyParser.json(),
-  apolloUploadExpress(),
-  graphqlExpress((req: any) => ({
-    schema,
-    rootValue: req,
-    context: { cookie: req.headers.cookie },
-  }))
-);
-*/
-
 if (isDev) {
   // Enabling Request module debug
   request.debug = true;
 }
 
-// Configure multer to accept multiple files (.any()) or a single file (.single('file'))
+// Configure multer to accept multiple files (.any())
+// or a single file (.single('file'))
 app.use(multer({
   storage: multer.memoryStorage(),
 }).any());

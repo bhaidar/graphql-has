@@ -1,8 +1,10 @@
 import { ApolloServer } from 'apollo-server-express';
 import { TypeDefs } from '../graphql';
-import resolvers from './resolvers/resolver';
+import resolvers from './resolvers';
 
 class GraphQlServer {
+  public static server;
+
   public static createServer(
     path: string,
     app: any,
@@ -11,7 +13,7 @@ class GraphQlServer {
   ): void {
     const typeDefs = new TypeDefs().appSchemaToGql();
 
-    const server = new ApolloServer({
+    this.server = new ApolloServer({
       typeDefs,
       resolvers,
       context: ({req, res}) => ({
@@ -21,11 +23,15 @@ class GraphQlServer {
       playground: developmentMode
     });
 
-    server.applyMiddleware({
+    this.server.applyMiddleware({
       app,
       path,
       cors: corsOpts,
     });
+  }
+
+  public static createSubscription(httpServer: any): void {
+    this.server.installSubscriptionHandlers(httpServer);
   }
 }
 
