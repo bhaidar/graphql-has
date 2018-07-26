@@ -6,8 +6,8 @@ const router = express.Router();
 
 router.get('/types', (req: express.Request, res: express.Response, next: express.NextFunction) => {
  res.download(
-    `${root}/server/interfaces/types.ts`,
-    `${Conf.BFFName}-types.ts`
+  `${root}/server/interfaces/types.ts`,
+  `${Conf.BFFName}-types.ts`
   );
 });
 
