@@ -5,6 +5,7 @@ class Conf {
   static ServerEnv;
   static ServerEnvId;
 
+  static BFFName = 'FooBarBff';
   static UploadMaxNumOfFiles = 25;
   static DefaultBFFPort = 3000;
   static DefaultBFFAddr = 'localhost';

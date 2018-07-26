@@ -62,7 +62,7 @@ app.use(multer({
 // ------------------------
 // REST
 // ------------------------
-app.use('/rest', cors(corsOptions), restRoutes);
+app.use('/api', cors(corsOptions), restRoutes);
 
 // ------------------------
 // MISC.
