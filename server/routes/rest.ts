@@ -11,4 +11,11 @@ router.get('/types', (req: express.Request, res: express.Response, next: express
   );
 });
 
+router.get('/fragments', (req: express.Request, res: express.Response, next: express.NextFunction) => {
+  res.download(
+   `${root}/graphql/static/fragments.js`,
+   `${Conf.BFFName}-fragments.js`
+   );
+ });
+
 export = router;
