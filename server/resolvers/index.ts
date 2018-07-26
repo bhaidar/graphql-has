@@ -1,43 +1,18 @@
-// Connectors
-import { PubSubManager } from '../connectors/pubsub';
-import { FortuneCookieService } from '../connectors/rest/fortune';
-
-// Resolving Controllers
-// import { FileUpload } from './upload/fileUpload';
-
 //
-// NOTE:
-// root = optional argument with the root object (could be set in app.ts)
-// args = arguments coming from the query
-// ctx = context object
+// You don't need to change this file, if you want to add
+// a query|mutation|subscription just create the relative "atom"
+// and add it to the "index.ts" file inside the hosting folder.
 //
-const resolver = {
-    Query: {
-      getFortuneCookie() {
-        console.log('Resolver:: getFortuneCookie');
-        const service = new FortuneCookieService();
-        return new Promise((resolve, reject) => {
-          service
-            .getOne()
-            .then((res: any) => {
-              resolve(res[0].fortune.message);
-            });
-        });
-      }
-    },
-    Mutation: {
-      /*
-      For the upload: https://blog.apollographql.com/file-uploads-with-apollo-server-2-0-5db2f3f60675
-      uploadDocumentBin: (root, { file, metadata }, ctx) =>
-        new FileUpload(ctx.cookie)
-          .processUpload(file, metadata, ctx)
-      */
-    },
-    Subscription: {
-      onData: {
-        subscribe: () => PubSubManager.getInstance().pubsub.asyncIterator(PubSubManager.ON_DATA_MSG),
-      },
-    },
+
+// Queries atoms
+import queries from './queries';
+// Mutations atoms
+import mutations from './mutations';
+// Subscriptions atoms
+import subscriptions from './subscriptions';
+
+export default {
+  Query: queries,
+  Mutation: mutations,
+  Subscription: subscriptions,
 };
-
-export default resolver;
