@@ -75,7 +75,7 @@ const removeLock = () => {
 //
 const welcomeMessage = ` => Service up and running <= `;
 const serverAddressMessage = ` (HTTP + WS) Listening on http://${Conf.ServerAddr}:${Conf.ServerPort} `;
-const serverKeyMessage = ` [Service key] ${Conf.ServerKey} `;
+const serverKeyMessage = ` [Service ID] ${Conf.ServerKey} `;
 console.log('\n');
 console.log(chalk.white.bgMagentaBright('                                          '));
 console.log(chalk.white.bgMagentaBright.bold(`     ${welcomeMessage}       `));
