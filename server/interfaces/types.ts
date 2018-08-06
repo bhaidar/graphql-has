@@ -1,12 +1,36 @@
 /* tslint:disable */
 import { GraphQLResolveInfo } from "graphql";
 
-type Resolver<Result, Args = any> = (
-  parent: any,
-  args: Args,
-  context: any,
-  info: GraphQLResolveInfo
+export type QueryResolver<Result, Parent = any, Context = any, Args = any> = (
+  parent?: Parent,
+  args?: Args,
+  context?: Context,
+  info?: GraphQLResolveInfo
 ) => Promise<Result> | Result;
+
+export type SubscriptionResolver<
+  Result,
+  Parent = any,
+  Context = any,
+  Args = any
+> = {
+  subscribe<R = Result, P = Parent>(
+    parent?: P,
+    args?: Args,
+    context?: Context,
+    info?: GraphQLResolveInfo
+  ): AsyncIterator<R | Result>;
+  resolve?<R = Result, P = Parent>(
+    parent?: P,
+    args?: Args,
+    context?: Context,
+    info?: GraphQLResolveInfo
+  ): R | Result | Promise<R | Result>;
+};
+
+export type Resolver<Result, Parent = any, Context = any, Args = any> =
+  | QueryResolver<Result, Parent, Context, Args>
+  | SubscriptionResolver<Result, Parent, Context, Args>;
 
 /** The `Upload` scalar type represents a file upload promise that resolves an object containing `stream`, `filename`, `mimetype` and `encoding`. */
 export type Upload = any;
@@ -38,46 +62,82 @@ export interface UploadDocumentBinMutationArgs {
 }
 
 export namespace QueryResolvers {
-  export interface Resolvers {
-    getFortuneCookie?: GetFortuneCookieResolver;
+  export interface Resolvers<Context = any, Parent = Query> {
+    getFortuneCookie?: GetFortuneCookieResolver<string | null, Parent, Context>;
   }
 
-  export type GetFortuneCookieResolver = Resolver<string | null>;
+  export type GetFortuneCookieResolver<
+    R = string | null,
+    Parent = Query,
+    Context = any
+  > = Resolver<R, Parent, Context>;
 }
+
 export namespace MutationResolvers {
-  export interface Resolvers {
-    uploadDocumentBin?: UploadDocumentBinResolver;
+  export interface Resolvers<Context = any, Parent = Mutation> {
+    uploadDocumentBin?: UploadDocumentBinResolver<File, Parent, Context>;
   }
 
-  export type UploadDocumentBinResolver = Resolver<File, UploadDocumentBinArgs>;
+  export type UploadDocumentBinResolver<
+    R = File,
+    Parent = Mutation,
+    Context = any
+  > = Resolver<R, Parent, Context, UploadDocumentBinArgs>;
   export interface UploadDocumentBinArgs {
     file: Upload;
   }
 }
+
 export namespace FileResolvers {
-  export interface Resolvers {
-    filename?: FilenameResolver;
-    mimetype?: MimetypeResolver;
-    encoding?: EncodingResolver;
+  export interface Resolvers<Context = any, Parent = File> {
+    filename?: FilenameResolver<string, Parent, Context>;
+    mimetype?: MimetypeResolver<string, Parent, Context>;
+    encoding?: EncodingResolver<string, Parent, Context>;
   }
 
-  export type FilenameResolver = Resolver<string>;
-  export type MimetypeResolver = Resolver<string>;
-  export type EncodingResolver = Resolver<string>;
+  export type FilenameResolver<
+    R = string,
+    Parent = File,
+    Context = any
+  > = Resolver<R, Parent, Context>;
+  export type MimetypeResolver<
+    R = string,
+    Parent = File,
+    Context = any
+  > = Resolver<R, Parent, Context>;
+  export type EncodingResolver<
+    R = string,
+    Parent = File,
+    Context = any
+  > = Resolver<R, Parent, Context>;
 }
+
 export namespace SubscriptionResolvers {
-  export interface Resolvers {
-    onData?: OnDataResolver;
+  export interface Resolvers<Context = any, Parent = Subscription> {
+    onData?: OnDataResolver<SubscriptionResult | null, Parent, Context>;
   }
 
-  export type OnDataResolver = Resolver<SubscriptionResult | null>;
+  export type OnDataResolver<
+    R = SubscriptionResult | null,
+    Parent = Subscription,
+    Context = any
+  > = Resolver<R, Parent, Context>;
 }
+
 export namespace SubscriptionResultResolvers {
-  export interface Resolvers {
-    id?: IdResolver;
-    data?: DataResolver;
+  export interface Resolvers<Context = any, Parent = SubscriptionResult> {
+    id?: IdResolver<string | null, Parent, Context>;
+    data?: DataResolver<string | null, Parent, Context>;
   }
 
-  export type IdResolver = Resolver<string | null>;
-  export type DataResolver = Resolver<string | null>;
+  export type IdResolver<
+    R = string | null,
+    Parent = SubscriptionResult,
+    Context = any
+  > = Resolver<R, Parent, Context>;
+  export type DataResolver<
+    R = string | null,
+    Parent = SubscriptionResult,
+    Context = any
+  > = Resolver<R, Parent, Context>;
 }
