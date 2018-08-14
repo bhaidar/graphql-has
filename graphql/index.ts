@@ -16,7 +16,7 @@ class TypeDefs {
 
   /**
    * Returns the content of the whole GraphQL definitions
-   * in a single string
+   * as a single string
    */
   public appSchemaToString(): string {
     let output = '';
@@ -37,7 +37,7 @@ class TypeDefs {
   }
 
   /**
-   * Checks if there are changes made after the last compilation
+   * Checks if there are changes made after the last compile
    * of the GraphQL schema + TS interfaces + Fragments. If yes,
    * it does trigger the creation process of those entities.
    */
