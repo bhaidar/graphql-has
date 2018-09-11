@@ -2,38 +2,104 @@ import { readFileSync, readdirSync, existsSync, statSync, stat } from 'fs';
 import * as _ from 'lodash';
 import { gql } from 'apollo-server-express';
 import { Common } from '../server/helpers/common';
+import resolvers from '../server/resolvers';
+
+const baseGqlDefinition = gql`
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
+`;
 
 class TypeDefs {
-  private graphQlFolder = './graphql';
+  private logicBasePath = './server/resolvers';
   private graphQlExtension = '.graphql';
-  private graphQlTypesFolder = `${this.graphQlFolder}/types`;
-  private graphQlBase = `${this.graphQlFolder}/base${this.graphQlExtension}`;
   private schemaPath = `schema${this.graphQlExtension}`;
 
   constructor() {
+    // TODO: Change tool for this
     this.prepareGraphqlAsssets();
   }
 
   /**
    * Returns the content of the whole GraphQL definitions
-   * as a single string
+   * as a single gql string
    */
-  public appSchemaToString(): string {
-    let output = '';
-    output = output.concat(readFileSync(this.graphQlBase, 'utf8'));
-    const files = readdirSync(this.graphQlTypesFolder);
-    _.each(files, file => {
-      if (file.indexOf(this.graphQlExtension) > -1) {
-        output = output.concat(
-          readFileSync(`${this.graphQlTypesFolder}/${file}`, 'utf8')
-        );
-      }
-    });
-    return output;
-  }
+  public appSchemaToString(): any {
+    const _resolvers = {
+      Query: {},
+      Mutation: {},
+      Subscription: {},
+    };
 
-  public appSchemaToGql(): any {
-    return gql`${this.appSchemaToString()}`;
+    const commonDefs = [];
+    const queryDefs = [];
+    const mutationDefs = [];
+    const subscriptionDefs = [];
+
+    _.each(resolvers, (items: any) => {
+      _.each(items, (item: any) => {
+        if (!_.isEmpty(item.resolver.query)) {
+          _resolvers.Query = {
+            ..._resolvers.Query,
+            ...item.resolver.query,
+          };
+        }
+        if (!_.isEmpty(item.resolver.mutation)) {
+          _resolvers.Mutation = {
+            ..._resolvers.Mutation,
+            ...item.resolver.mutation,
+          };
+        }
+        if (!_.isEmpty(item.resolver.subscription)) {
+          _resolvers.Subscription = {
+            ..._resolvers.Subscription,
+            ...item.resolver.subscription,
+          };
+        }
+        if (!_.isEmpty(item.common)) {
+          commonDefs.push(item.common);
+        }
+        if (!_.isEmpty(item.query)) {
+          queryDefs.push(item.query);
+        }
+        if (!_.isEmpty(item.mutation)) {
+          mutationDefs.push(item.mutation);
+        }
+        if (!_.isEmpty(item.subscription)) {
+          subscriptionDefs.push(item.subscription);
+        }
+      });
+    });
+
+    const commonDef = gql`${commonDefs.join("\n")}`;
+    const queryDef = gql`
+      type Query {
+        ${queryDefs.join("\n")}
+      }
+    `;
+    const mutationDef = gql`
+      type Mutation {
+        ${mutationDefs.join("\n")}
+      }
+    `;
+    const subscriptionDef = gql`
+      type Subscription {
+        ${subscriptionDefs.join("\n")}
+      }
+    `;
+
+    let typeDefs = [baseGqlDefinition];
+    typeDefs = [
+      ...typeDefs,
+      commonDef,
+      queryDef,
+      mutationDef,
+      subscriptionDef,
+    ];
+
+    return { resolvers: _resolvers, typeDefs };
   }
 
   /**
@@ -46,25 +112,18 @@ class TypeDefs {
       const schemaStat = statSync(this.schemaPath);
       const schemaModifiedDate = new Date(schemaStat.mtime);
 
-      const baseModifiedStat = statSync(this.graphQlBase);
-      const baseModifiedDate = new Date(baseModifiedStat.mtime);
+      const files = readdirSync(this.logicBasePath);
+      _.each(files, file => {
+        if (file.indexOf('.ts') > -1 && file.indexOf('index') < 0) {
+          const fileStat = statSync(`${this.logicBasePath}/${file}`);
+          const fileModifiedDate = new Date(fileStat.mtime);
 
-      if (baseModifiedDate > schemaModifiedDate) {
-        this.triggerGraphqlPreparation();
-      } else {
-        const files = readdirSync(this.graphQlTypesFolder);
-        _.each(files, file => {
-          if (file.indexOf(this.graphQlExtension) > -1) {
-            const fileStat = statSync(`${this.graphQlTypesFolder}/${file}`);
-            const fileModifiedDate = new Date(fileStat.mtime);
-
-            if (fileModifiedDate > schemaModifiedDate) {
-              this.triggerGraphqlPreparation();
-              return true;
-            }
+          if (fileModifiedDate > schemaModifiedDate) {
+            this.triggerGraphqlPreparation();
+            return true;
           }
-        });
-      }
+        }
+      });
     } else {
       this.triggerGraphqlPreparation();
     }
@@ -73,7 +132,7 @@ class TypeDefs {
   /**
    *
    */
-  triggerGraphqlPreparation(): void {
+  private triggerGraphqlPreparation(): void {
     Common.executeNpmScript('prepare-graphql');
   }
 }

@@ -1,6 +1,6 @@
+import * as _ from 'lodash';
 import { ApolloServer } from 'apollo-server-express';
 import { TypeDefs } from '../graphql';
-import resolvers from './resolvers';
 
 class GraphQlServer {
   public static server;
@@ -11,7 +11,7 @@ class GraphQlServer {
     corsOpts: any,
     developmentMode: boolean,
   ): void {
-    const typeDefs = new TypeDefs().appSchemaToGql();
+    const { resolvers, typeDefs } = new TypeDefs().appSchemaToString();
 
     this.server = new ApolloServer({
       typeDefs,
