@@ -1,4 +1,5 @@
-import { readFileSync, readdirSync, existsSync, statSync, stat } from 'fs';
+import { readFileSync, readdirSync, readdir, existsSync, statSync } from 'fs';
+import * as path from 'path';
 import * as _ from 'lodash';
 import { gql } from 'apollo-server-express';
 import { Common } from '../server/helpers/common';
@@ -112,10 +113,29 @@ class TypeDefs {
       const schemaStat = statSync(this.schemaPath);
       const schemaModifiedDate = new Date(schemaStat.mtime);
 
-      const files = readdirSync(this.logicBasePath);
+      /**
+      * List all files in a directory recursively in a synchronous fashion.
+      *
+      * @param {String} dir
+      * @returns {IterableIterator<String>}
+      */
+      const traverseDir = (dir) => {
+        let output = [];
+        readdirSync(dir).forEach(file => {
+          let fullPath = path.join(dir, file);
+          if (lstatSync(fullPath).isDirectory()) {
+            output.push(...traverseDir(fullPath));
+          } else {
+            output.push(fullPath);
+          }
+        });
+        return output;
+      }
+
+      const files = traverseDir(this.logicBasePath);
       _.each(files, file => {
         if (file.indexOf('.ts') > -1 && file.indexOf('index') < 0) {
-          const fileStat = statSync(`${this.logicBasePath}/${file}`);
+          const fileStat = statSync(file);
           const fileModifiedDate = new Date(fileStat.mtime);
 
           if (fileModifiedDate > schemaModifiedDate) {
