@@ -27,6 +27,7 @@ module.exports = {
    * Deployment section
    * http://pm2.keymetrics.io/docs/usage/deployment/
    */
+  /*
   deploy : {
     production : {
       user : 'node',
@@ -37,4 +38,5 @@ module.exports = {
       'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production'
     }
   }
+  */
 };

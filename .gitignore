@@ -68,3 +68,6 @@ typings/
 
 # GraphQL
 schema.graphql
+schema.json
+fragments.ts
+fragments.js
