@@ -19,7 +19,6 @@ class TypeDefs {
   private schemaPath = `schema${this.graphQlExtension}`;
 
   constructor() {
-    // TODO: Change tool for this
     this.prepareGraphqlAsssets();
   }
 

@@ -32,7 +32,9 @@
     "build:stage": "npm run clean && node node_modules/webpack/bin/webpack.js --config config/webpack.stage.config.js",
     "build:prod": "npm run clean && node node_modules/webpack/bin/webpack.js --config config/webpack.production.config.js",
     "clean": "rimraf build/*",
-    "generate-fragments": "graphql-fragment-codegen < ./schema.graphql > ./graphql/static/fragments.js",
+    "generate-fragments-ts": "graphql-fragment-codegen < ./schema.graphql > ./graphql/static/fragments.ts",
+    "generate-fragments-js": "graphql-fragment-codegen < ./schema.graphql > ./graphql/static/fragments.js",
+    "generate-fragments": "npm run generate-fragments-ts",
     "generate-graphql-schema": "apollo schema:download schema.json --endpoint=http://localhost:3000/graphql && get-graphql-schema http://localhost:3000/graphql > ./schema.graphql",
     "gql2ts": "rimraf ./server/interfaces/graphql.d.ts && gql2ts schema.json -o ./server/interfaces/graphql.d.ts"
   },
