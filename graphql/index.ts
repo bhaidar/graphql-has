@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync, readdir, existsSync, statSync } from 'fs';
+import { lstatSync, readdirSync, existsSync, statSync } from 'fs';
 import * as path from 'path';
 import * as _ from 'lodash';
 import { gql } from 'apollo-server-express';
