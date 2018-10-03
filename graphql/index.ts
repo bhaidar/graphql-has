@@ -40,6 +40,13 @@ class TypeDefs {
 
     _.each(resolvers, (items: any) => {
       _.each(items, (item: any) => {
+        if (!_.isEmpty(item.resolver.type)) {
+          _.each(item.resolver.type, (type: any, key: string) => {
+            _resolvers[key] = {
+              __resolveType: type
+            };
+          });
+        }
         if (!_.isEmpty(item.resolver.query)) {
           _resolvers.Query = {
             ..._resolvers.Query,
@@ -58,6 +65,8 @@ class TypeDefs {
             ...item.resolver.subscription,
           };
         }
+
+        // GraphQl definitions
         if (!_.isEmpty(item.common)) {
           commonDefs.push(item.common);
         }

@@ -22,7 +22,21 @@ column: number;
 
 interface IQuery {
 __typename: "Query";
-getFortuneCookie: string | null;
+getFortuneCookie: FortuneString | null;
+}
+
+type FortuneString = IStringA | IStringB;
+
+
+
+interface IStringA {
+__typename: "StringA";
+msg: string | null;
+}
+
+interface IStringB {
+__typename: "StringB";
+msg: string | null;
 }
 
 interface IMutation {

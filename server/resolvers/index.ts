@@ -10,9 +10,12 @@ import queries from './queries';
 import mutations from './mutations';
 // Subscriptions atoms
 import subscriptions from './subscriptions';
+// Types resolvers
+import types from './types';
 
 export default {
   Query: queries,
   Mutation: mutations,
   Subscription: subscriptions,
+  Types: types,
 };

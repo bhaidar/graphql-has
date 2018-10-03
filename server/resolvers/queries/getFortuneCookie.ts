@@ -1,5 +1,3 @@
-import { gql } from 'apollo-server-express';
-
 import { FortuneCookieService } from '../../connectors/rest/fortune';
 
 //
@@ -9,6 +7,7 @@ import { FortuneCookieService } from '../../connectors/rest/fortune';
 // ctx = context object
 export default {
   resolver: {
+    __resolveType: {},
     query: {
       getFortuneCookie(root: any, {}: any, ctx: any) {
         console.log('Resolver:: getFortuneCookie');
@@ -17,7 +16,9 @@ export default {
           service
             .getOne()
             .then((res: any) => {
-              resolve(res[0].fortune.message);
+              resolve({
+                msg: res[0].fortune.message
+              });
             });
         });
       }
@@ -26,7 +27,7 @@ export default {
     subscription: {},
   },
   query: `
-    getFortuneCookie: String
+    getFortuneCookie: FortuneString
   `,
   mutation: ``,
   subscription: ``,
