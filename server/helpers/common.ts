@@ -31,4 +31,4 @@ class Common {
   }
 }
 
-export { Common }
+export { Common };

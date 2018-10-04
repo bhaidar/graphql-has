@@ -7,7 +7,6 @@ import { FortuneCookieService } from '../../connectors/rest/fortune';
 // ctx = context object
 export default {
   resolver: {
-    __resolveType: {},
     query: {
       getFortuneCookie(root: any, {}: any, ctx: any) {
         console.log('Resolver:: getFortuneCookie');
@@ -23,13 +22,8 @@ export default {
         });
       }
     },
-    mutation: {},
-    subscription: {},
   },
   query: `
     getFortuneCookie: FortuneString
   `,
-  mutation: ``,
-  subscription: ``,
-  common: ``,
 };
