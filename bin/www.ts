@@ -28,28 +28,35 @@ httpServer.on('error', (error: any) => {
     throw error;
   }
 
-  const bind = typeof Conf.ServerPort === 'string' ? `Pipe ${Conf.ServerPort}` : `Port ${Conf.ServerPort}`;
+  const bind = typeof Conf.ServerPort === 'string'
+    ? `Pipe ${Conf.ServerPort}`
+    : `Port ${Conf.ServerPort}`;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
+      console.error(`${bind} requires elevated privileges`);
       process.exit(1);
       break;
     case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
+      console.error(`${bind} is already in use`);
       process.exit(1);
       break;
     default:
       throw error;
   }
 });
+
 httpServer.on('listening', () => {
   /**
    * Event listener for HTTP server "listening" event.
    */
   const addr = httpServer.address();
-  const bind = (typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`);
+  const bind = (
+    typeof addr === 'string'
+      ? `pipe ${addr}`
+      : `port ${addr.port}`
+  );
   log(`Listening on ${bind}`);
 });
 

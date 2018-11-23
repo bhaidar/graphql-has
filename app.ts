@@ -11,7 +11,6 @@ Conf.ServerKey = `${Conf.BFFName}:${Conf.ServerEnv}-${Conf.ServerEnvId}`;
 const isDev = Conf.ServerEnv === Common.constants.ENV_DEV
   || Conf.ServerEnv === Common.constants.ENV_TEST;
 
-import * as root from 'app-root-path';
 import * as compression from 'compression';
 import * as cookieParser from 'cookie-parser';
 import * as cors from 'cors';
@@ -29,20 +28,19 @@ const app = express();
 // CORS options
 const corsOptions = {
   origin: Conf.AcceptedDomains,
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  preflightContinue: false,
-  optionsSuccessStatus: 200                 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  methods: Conf.AcceptedMethods,
+  preflightContinue: Conf.PreflightContinue,
+  optionsSuccessStatus: Conf.OptionsSuccessStatus
 };
 
 // Support pre-flight for all the requests
-app.options('*', cors(corsOptions));
+app.options(Conf.AcceptedDomains, cors(corsOptions));
 
 // -------------------
 //  Apollo Server
 // -------------------
-const graphqlPath = '/graphql';
 GraphQlServer.createServer(
-  graphqlPath,
+  Conf.GraphQlPath,
   app,
   corsOptions,
   isDev,
@@ -62,14 +60,14 @@ app.use(multer({
 // ------------------------
 // REST
 // ------------------------
-app.use('/api', cors(corsOptions), restRoutes);
+app.use(Conf.RestPath, cors(corsOptions), restRoutes);
 
 // ------------------------
 // MISC.
 // ------------------------
 // view engine setup
-app.set('views', `${root}/server/views/`);
-app.set('view engine', 'ejs');
+app.set('views', Conf.ViewsSrcPath);
+app.set('view engine', Conf.ViewsEngine);
 app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
   // catch 404 and forward to error handler
   const err: any = new Error('Not Found');

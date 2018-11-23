@@ -16,7 +16,7 @@ import { dev, test, prod } from '../../../config/apis';
  */
 class BaseConnector {
   protected cookie: string = '';
-  protected conf;
+  protected endpoints;
   protected defaultHeaders;
 
   constructor(cookie?: string) {
@@ -34,13 +34,13 @@ class BaseConnector {
     switch (env) {
       default:
       case Common.constants.ENV_DEV:
-        this.conf = dev(envIndex);
+        this.endpoints = dev(envIndex);
         break;
       case Common.constants.ENV_TEST:
-        this.conf = test(envIndex);
+        this.endpoints = test(envIndex);
         break;
       case Common.constants.ENV_PROD:
-        this.conf = prod(envIndex);
+        this.endpoints = prod(envIndex);
         break;
     }
   }

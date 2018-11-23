@@ -6,7 +6,7 @@ class FortuneCookieService extends BaseConnector {
   }
 
   public getOne() {
-    const opts = this.constructRequestObject('http://fortunecookieapi.herokuapp.com/v1/cookie');
+    const opts = this.constructRequestObject(this.endpoints.getCookie);
     return this._get(opts);
   }
 }
