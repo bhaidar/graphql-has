@@ -8,7 +8,6 @@ export default {
         new FileUpload(ctx.cookie)
           .processUpload(file, metadata, ctx)
     },
-    subscription: {},
   },
   mutation: `
     uploadDocumentBin(file: Upload!): File!
