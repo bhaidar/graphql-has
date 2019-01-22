@@ -2,6 +2,11 @@ import * as _ from 'lodash';
 import { ApolloServer } from 'apollo-server-express';
 import { TypeDefs } from '../graphql';
 
+import context from './context';
+import formatResponse from './extensions';
+import validationRules from './validationRules';
+import middlewares from './middlewares';
+
 class GraphQlServer {
   public static server;
 
@@ -13,14 +18,17 @@ class GraphQlServer {
   ): void {
     const { resolvers, typeDefs } = new TypeDefs().appSchemaToString();
 
+    // Registering middlewares before Apollo
+    app.use(path, [...middlewares]);
+
     this.server = new ApolloServer({
       typeDefs,
       resolvers,
-      context: ({req, res}) => ({
-        cookie: req.headers.cookie,
-      }),
+      context,
+      formatResponse,
+      validationRules,
       introspection: developmentMode,
-      playground: developmentMode
+      playground: developmentMode,
     });
 
     this.server.applyMiddleware({
