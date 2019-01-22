@@ -5,7 +5,7 @@ module.exports = {
    */
   apps : [
     {
-      name                : 'MY-AWESOME-BFF',
+      name                : 'MY-AWESOME-GQL-API',
       script              : 'build/compiled',
       instances           : 1,
       exec_mode           : "cluster",

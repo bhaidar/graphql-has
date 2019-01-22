@@ -9,10 +9,10 @@ class Conf {
   static ServerEnv;
   static ServerEnvId;
 
-  static BFFName = CONFS.name;
+  static AppName = CONFS.name;
   static UploadMaxNumOfFiles = CUSTOM_CONFS.maxUploadFiles;
-  static DefaultBFFPort = CONFS.defaults.port;
-  static DefaultBFFAddr = CONFS.defaults.addr;
+  static DefaultAppPort = CONFS.defaults.port;
+  static DefaultAppAddr = CONFS.defaults.addr;
   static AcceptedDomains = CONFS.cors.acceptedDomains;
   static AcceptedMethods = CONFS.cors.methods;
   static PreflightContinue = CONFS.cors.preflightContinue;

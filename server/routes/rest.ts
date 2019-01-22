@@ -7,14 +7,14 @@ const router = express.Router();
 router.get('/types', (req: express.Request, res: express.Response, next: express.NextFunction) => {
  res.download(
   `${root}/server/interfaces/types.ts`,
-  `${Conf.BFFName}-types.ts`
+  `${Conf.AppName}-types.ts`
   );
 });
 
 router.get('/fragments', (req: express.Request, res: express.Response, next: express.NextFunction) => {
   res.download(
    `${root}/graphql/static/fragments.js`,
-   `${Conf.BFFName}-fragments.js`
+   `${Conf.AppName}-fragments.js`
    );
  });
 

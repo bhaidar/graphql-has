@@ -2,11 +2,11 @@ import { Common } from './server/helpers/common';
 import { Conf } from './config/common';
 
 // Store some confs
-Conf.ServerAddr = process.env.ADDR || Conf.DefaultBFFAddr;
-Conf.ServerPort = process.env.PORT || String(Conf.DefaultBFFPort);
+Conf.ServerAddr = process.env.ADDR || Conf.DefaultAppAddr;
+Conf.ServerPort = process.env.PORT || String(Conf.DefaultAppPort);
 Conf.ServerEnv = process.env.NODE_TARGET_ENV || Common.constants.ENV_DEV;
 Conf.ServerEnvId = process.env.NODE_ENV_ID || 1;
-Conf.ServerKey = `${Conf.BFFName}:${Conf.ServerEnv}-${Conf.ServerEnvId}`;
+Conf.ServerKey = `${Conf.AppName}:${Conf.ServerEnv}-${Conf.ServerEnvId}`;
 
 const isDev = Conf.ServerEnv === Common.constants.ENV_DEV
   || Conf.ServerEnv === Common.constants.ENV_TEST;
