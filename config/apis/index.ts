@@ -1,24 +1,25 @@
 import { Conf } from '../../config/common';
 
-const dev = (envIndex: string | number): any => {
-  // TODO: env specific confs
-  return {
-    ...Conf.Remotes
-  };
+const getEndpoint = (name: string): string => {
+  const remotes = Conf.Remotes;
+  const serviceConfs = remotes[name];
+
+  if (typeof serviceConfs == 'string') {
+    return serviceConfs;
+  } else {
+    const env = Conf.ServerEnv;
+    const envIndex = Conf.ServerEnvId;
+    const defaultUrl = serviceConfs['default'];
+    const url = serviceConfs[`${env}${envIndex}`];
+
+    if (!url && !defaultUrl) {
+      throw new Error(
+        `Cannot find the given name property ${name} for the env ${env}${envIndex}`
+      );
+    }
+
+    return url || defaultUrl;
+  }
 };
 
-const test = (envIndex: string | number): any => {
-  // TODO: env specific confs
-  return {
-    ...Conf.Remotes
-  };
-};
-
-const prod = (envIndex: string | number): any => {
-  // TODO: env specific confs
-  return {
-    ...Conf.Remotes
-  };
-};
-
-export { dev, test, prod };
+export { getEndpoint };

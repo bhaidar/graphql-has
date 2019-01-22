@@ -1,5 +1,6 @@
 import * as root from 'app-root-path';
 import * as CONFS from '../serviceconfig.json';
+import * as CUSTOM_CONFS from '../serviceconfig.custom.json';
 
 class Conf {
   static ServerKey;
@@ -9,7 +10,7 @@ class Conf {
   static ServerEnvId;
 
   static BFFName = CONFS.name;
-  static UploadMaxNumOfFiles = 25;
+  static UploadMaxNumOfFiles = CUSTOM_CONFS.maxUploadFiles;
   static DefaultBFFPort = CONFS.defaults.port;
   static DefaultBFFAddr = CONFS.defaults.addr;
   static AcceptedDomains = CONFS.cors.acceptedDomains;
