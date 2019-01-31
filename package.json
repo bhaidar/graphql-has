@@ -4,17 +4,12 @@
   "description": "TypeScript + Express + Apollo Server + Apollo Engine + GraphQL",
   "private": true,
   "directories": {
-    "test": "tests"
+    "test": "__tests__"
   },
   "scripts": {
     "help": "node ./bin/wizard.js",
-    "auto-env": "npm run build:prod && node build/compiled",
     "dev1": "npm run build:dev && cross-env NODE_TARGET_ENV=development NODE_ENV_ID=1 node build/compiled",
-    "dev2": "npm run build:dev && cross-env NODE_TARGET_ENV=development NODE_ENV_ID=2 node build/compiled",
-    "dev3": "npm run build:dev && cross-env NODE_TARGET_ENV=development NODE_ENV_ID=3 node build/compiled",
     "test1": "npm run build:stage && cross-env NODE_TARGET_ENV=stage NODE_ENV_ID=1 node build/compiled",
-    "test2": "npm run build:stage && cross-env NODE_TARGET_ENV=stage NODE_ENV_ID=2 node build/compiled",
-    "test3": "npm run build:stage && cross-env NODE_TARGET_ENV=stage NODE_ENV_ID=3 node build/compiled",
     "prod": "npm run build:prod && cross-env NODE_TARGET_ENV=production NODE_ENV_ID=1 node build/compiled",
     "check-vuln": "nsp check --filter 5",
     "lint": "tslint -c tslint.json 'server/**/*.{ts}'",
@@ -55,7 +50,7 @@
     "@types/core-js": "^2.5.0",
     "@types/debug": "^0.0.31",
     "@types/express": "^4.16.0",
-    "@types/express-serve-static-core": "^4.16.0",
+    "@types/express-serve-static-core": "^4.16.1",
     "@types/graphql": "^14.0.5",
     "@types/mime": "^2.0.0",
     "@types/morgan": "^1.7.35",
@@ -73,7 +68,7 @@
     "webpack-cli": "^3.2.1"
   },
   "dependencies": {
-    "apollo": "^2.3.0",
+    "apollo": "^2.3.1",
     "apollo-server": "^2.3.1",
     "apollo-server-express": "^2.3.1",
     "app-root-path": "^2.1.0",
@@ -90,7 +85,7 @@
     "graphql": "^14.1.1",
     "graphql-cli": "^3.0.6",
     "graphql-cli-generate-fragments": "^1.4.1",
-    "graphql-tools": "^4.0.3",
+    "graphql-tools": "^4.0.4",
     "inquirer": "^6.2.1",
     "lodash": "^4.17.11",
     "luxon": "^1.10.0",

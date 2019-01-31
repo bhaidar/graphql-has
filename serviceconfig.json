@@ -36,7 +36,7 @@
     "anotherService": {
       "default": "https://api.foo.bar",
       "development-1": "https://dev.api.foo.bar",
-      "production-2": "https://prod.api.foo.bar"
+      "production-1": "https://prod.api.foo.bar"
     }
   }
 }

@@ -10,7 +10,6 @@ class Conf {
   static ServerEnvId;
 
   static AppName = CONFS.name;
-  static UploadMaxNumOfFiles = CUSTOM_CONFS.maxUploadFiles;
   static DefaultAppPort = CONFS.defaults.port;
   static DefaultAppAddr = CONFS.defaults.addr;
   static AcceptedDomains = CONFS.cors.acceptedDomains;
@@ -23,6 +22,8 @@ class Conf {
   static ViewsSrcPath = String(CONFS.views.src).replace('__root', root.toString());
 
   static Remotes = CONFS.remotes;
+
+  static Custom = CUSTOM_CONFS;
 }
 
 export { Conf }

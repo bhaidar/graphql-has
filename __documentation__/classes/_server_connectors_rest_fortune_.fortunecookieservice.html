@@ -92,12 +92,13 @@
 								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-not-exported"><a href="_server_connectors_rest_fortune_.fortunecookieservice.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-inherited tsd-is-private-protected tsd-is-not-exported">
+						<section class="tsd-index-section tsd-is-private-protected tsd-is-not-exported">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported"><a href="_server_connectors_rest_fortune_.fortunecookieservice.html#conf" class="tsd-kind-icon">conf</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported"><a href="_server_connectors_rest_fortune_.fortunecookieservice.html#cookie" class="tsd-kind-icon">cookie</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported"><a href="_server_connectors_rest_fortune_.fortunecookieservice.html#defaultheaders" class="tsd-kind-icon">default<wbr>Headers</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported"><a href="_server_connectors_rest_fortune_.fortunecookieservice.html#endpoints" class="tsd-kind-icon">endpoints</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-not-exported"><a href="_server_connectors_rest_fortune_.fortunecookieservice.html#servicename" class="tsd-kind-icon">service<wbr>Name</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-not-exported">
@@ -128,7 +129,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_server_connectors_rest_base_.baseconnector.html">BaseConnector</a>.<a href="_server_connectors_rest_base_.baseconnector.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/0c65d9d/server/connectors/rest/fortune.ts#L3">server/connectors/rest/fortune.ts:3</a></li>
+									<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/server/connectors/rest/fortune.ts#L4">server/connectors/rest/fortune.ts:4</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_server_connectors_rest_fortune_.fortunecookieservice.html" class="tsd-signature-type">FortuneCookieService</a></h4>
@@ -136,19 +137,8 @@
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-inherited tsd-is-private-protected tsd-is-not-exported">
+			<section class="tsd-panel-group tsd-member-group tsd-is-private-protected tsd-is-not-exported">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported">
-					<a name="conf" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> conf</h3>
-					<div class="tsd-signature tsd-kind-icon">conf<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="_server_connectors_rest_base_.baseconnector.html">BaseConnector</a>.<a href="_server_connectors_rest_base_.baseconnector.html#conf">conf</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/0c65d9d/server/connectors/rest/base.ts#L19">server/connectors/rest/base.ts:19</a></li>
-						</ul>
-					</aside>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported">
 					<a name="cookie" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> cookie</h3>
@@ -156,7 +146,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_server_connectors_rest_base_.baseconnector.html">BaseConnector</a>.<a href="_server_connectors_rest_base_.baseconnector.html#cookie">cookie</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/0c65d9d/server/connectors/rest/base.ts#L18">server/connectors/rest/base.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/server/connectors/rest/base.ts#L16">server/connectors/rest/base.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -167,7 +157,28 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_server_connectors_rest_base_.baseconnector.html">BaseConnector</a>.<a href="_server_connectors_rest_base_.baseconnector.html#defaultheaders">defaultHeaders</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/0c65d9d/server/connectors/rest/base.ts#L20">server/connectors/rest/base.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/server/connectors/rest/base.ts#L18">server/connectors/rest/base.ts:18</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported">
+					<a name="endpoints" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> endpoints</h3>
+					<div class="tsd-signature tsd-kind-icon">endpoints<span class="tsd-signature-symbol">:</span> <a href="" class="tsd-signature-type">getEndpoint</a><span class="tsd-signature-symbol"> =&nbsp;getEndpoint</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_server_connectors_rest_base_.baseconnector.html">BaseConnector</a>.<a href="_server_connectors_rest_base_.baseconnector.html#endpoints">endpoints</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/server/connectors/rest/base.ts#L17">server/connectors/rest/base.ts:17</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-not-exported">
+					<a name="servicename" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> service<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">service<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;getCookie&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/server/connectors/rest/fortune.ts#L4">server/connectors/rest/fortune.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -185,7 +196,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_server_connectors_rest_base_.baseconnector.html">BaseConnector</a>.<a href="_server_connectors_rest_base_.baseconnector.html#_delete">_delete</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/0c65d9d/server/connectors/rest/base.ts#L89">server/connectors/rest/base.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/server/connectors/rest/base.ts#L72">server/connectors/rest/base.ts:72</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -223,7 +234,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_server_connectors_rest_base_.baseconnector.html">BaseConnector</a>.<a href="_server_connectors_rest_base_.baseconnector.html#_download">_download</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/0c65d9d/server/connectors/rest/base.ts#L99">server/connectors/rest/base.ts:99</a></li>
+									<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/server/connectors/rest/base.ts#L82">server/connectors/rest/base.ts:82</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -255,7 +266,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_server_connectors_rest_base_.baseconnector.html">BaseConnector</a>.<a href="_server_connectors_rest_base_.baseconnector.html#_get">_get</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/0c65d9d/server/connectors/rest/base.ts#L56">server/connectors/rest/base.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/server/connectors/rest/base.ts#L39">server/connectors/rest/base.ts:39</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -293,7 +304,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_server_connectors_rest_base_.baseconnector.html">BaseConnector</a>.<a href="_server_connectors_rest_base_.baseconnector.html#_post">_post</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/0c65d9d/server/connectors/rest/base.ts#L67">server/connectors/rest/base.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/server/connectors/rest/base.ts#L50">server/connectors/rest/base.ts:50</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -331,7 +342,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_server_connectors_rest_base_.baseconnector.html">BaseConnector</a>.<a href="_server_connectors_rest_base_.baseconnector.html#_put">_put</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/0c65d9d/server/connectors/rest/base.ts#L78">server/connectors/rest/base.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/server/connectors/rest/base.ts#L61">server/connectors/rest/base.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -369,7 +380,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_server_connectors_rest_base_.baseconnector.html">BaseConnector</a>.<a href="_server_connectors_rest_base_.baseconnector.html#constructrequestobject">constructRequestObject</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/0c65d9d/server/connectors/rest/base.ts#L128">server/connectors/rest/base.ts:128</a></li>
+									<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/server/connectors/rest/base.ts#L111">server/connectors/rest/base.ts:111</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -418,7 +429,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/0c65d9d/server/connectors/rest/fortune.ts#L8">server/connectors/rest/fortune.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/server/connectors/rest/fortune.ts#L10">server/connectors/rest/fortune.ts:10</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -433,71 +444,8 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class="label tsd-is-external">
-						<span>Internals</span>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_connectors_pubsub_.html">"server/connectors/pubsub"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_connectors_rest___mocks___base_.html">"server/connectors/rest/__mocks__/base"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_connectors_rest_base_.html">"server/connectors/rest/base"</a>
-					</li>
 					<li class="current tsd-kind-external-module">
 						<a href="../modules/_server_connectors_rest_fortune_.html">"server/connectors/rest/fortune"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_errors_uploaderror_.html">"server/errors/upload<wbr>Error"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_helpers_common_.html">"server/helpers/common"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_helpers_fileutils_.html">"server/helpers/file<wbr>Utils"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_interfaces_file_type_.html">"server/interfaces/file.type"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_interfaces_mutation_type_.html">"server/interfaces/mutation.type"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_interfaces_query_type_.html">"server/interfaces/query.type"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_interfaces_subscription_type_.html">"server/interfaces/subscription.type"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_interfaces_subscriptionresult_type_.html">"server/interfaces/subscriptionresult.type"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_interfaces_upload_scalar_.html">"server/interfaces/upload.scalar"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_resolvers_resolver_.html">"server/resolvers/resolver"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_resolvers_upload_fileupload_.html">"server/resolvers/upload/file<wbr>Upload"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_routes_rest_.html">"server/routes/rest"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_schemas_schema_.html">"server/schemas/schema"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_schemas_types_index_.html">"server/schemas/types/index"</a>
-					</li>
-					<li class="label tsd-is-external">
-						<span>Externals</span>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="../modules/_config_common_.html">"config/common"</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="../modules/_graphql_index_.html">"graphql/index"</a>
 					</li>
 				</ul>
 			</nav>
@@ -512,13 +460,16 @@
 								<a href="_server_connectors_rest_fortune_.fortunecookieservice.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported">
-								<a href="_server_connectors_rest_fortune_.fortunecookieservice.html#conf" class="tsd-kind-icon">conf</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported">
 								<a href="_server_connectors_rest_fortune_.fortunecookieservice.html#cookie" class="tsd-kind-icon">cookie</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported">
 								<a href="_server_connectors_rest_fortune_.fortunecookieservice.html#defaultheaders" class="tsd-kind-icon">default<wbr>Headers</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported">
+								<a href="_server_connectors_rest_fortune_.fortunecookieservice.html#endpoints" class="tsd-kind-icon">endpoints</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-not-exported">
+								<a href="_server_connectors_rest_fortune_.fortunecookieservice.html#servicename" class="tsd-kind-icon">service<wbr>Name</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported">
 								<a href="_server_connectors_rest_fortune_.fortunecookieservice.html#_delete" class="tsd-kind-icon">_delete</a>
