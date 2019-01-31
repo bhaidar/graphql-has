@@ -66,8 +66,11 @@ This allows the developer(s) to have everything as tight as possible, without sp
 Resolvers and definitions cohesists in the same file; these files are separated in contextual folders (mutations, queries, subscriptions, types) for the sake of order, though, you are free to rearrange them as you prefer (just remember to change the export in the index.ts file under 'resolvers').
 You can also put queries, mutations, and different entities in general, in the same file if you prefer so.
 
-[EXAMPLE A]
-[EXAMPLE B]
+**Single resolver**
+<img src="http://i66.tinypic.com/fcsnxw.jpg" />
+
+**Multiple resolvers**
+<img src="http://i67.tinypic.com/96kg8y.jpg" />
 
 **Extending the GraphQL context**
 ---
