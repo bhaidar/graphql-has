@@ -26,11 +26,13 @@ import { GraphQlServer } from './server';
 const app = express();
 
 // CORS options
+// TODO: Use a flag to enable/disable CORS
 const corsOptions = {
   origin: Conf.AcceptedDomains,
   methods: Conf.AcceptedMethods,
   preflightContinue: Conf.PreflightContinue,
-  optionsSuccessStatus: Conf.OptionsSuccessStatus
+  optionsSuccessStatus: Conf.OptionsSuccessStatus,
+  credentials: true,
 };
 
 // Support pre-flight for all the requests

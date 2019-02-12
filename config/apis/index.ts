@@ -10,11 +10,11 @@ const getEndpoint = (name: string): string => {
     const env = Conf.ServerEnv;
     const envIndex = Conf.ServerEnvId;
     const defaultUrl = serviceConfs['default'];
-    const url = serviceConfs[`${env}${envIndex}`];
+    const url = serviceConfs[`${env}-${envIndex}`];
 
     if (!url && !defaultUrl) {
       throw new Error(
-        `Cannot find the given name property ${name} for the env ${env}${envIndex}`
+        `Cannot find the given name property ${name} for the env ${env}-${envIndex}`
       );
     }
 

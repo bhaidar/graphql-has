@@ -24,8 +24,13 @@ class BaseConnector {
       'accept': 'application/json, text/plain, */*',
       'accept-encoding': 'gzip, deflate, br',
       'content-type': 'application/json',
-      'cookie': this.cookie
     };
+    if (typeof this.cookie !== 'undefined' && this.cookie !== '') {
+      this.defaultHeaders = {
+        ...this.defaultHeaders,
+        cookie: this.cookie
+      };
+    }
   }
 
   // NOTE: It's useful to pass resolveWithFullResponse=false in case you need to

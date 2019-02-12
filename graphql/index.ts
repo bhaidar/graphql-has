@@ -82,6 +82,11 @@ class TypeDefs {
       });
     });
 
+    // Removing empty entities
+    if (_.size(_resolvers.Query) == 0) delete _resolvers.Query;
+    if (_.size(_resolvers.Mutation) == 0) delete _resolvers.Mutation;
+    if (_.size(_resolvers.Subscription) == 0) delete _resolvers.Subscription;
+
     const commonDef = gql`${commonDefs.join("\n")}`;
     const queryDef = gql`
       type Query {
@@ -102,11 +107,17 @@ class TypeDefs {
     let typeDefs = [baseGqlDefinition];
     typeDefs = [
       ...typeDefs,
+      /*
       commonDef,
       queryDef,
       mutationDef,
       subscriptionDef,
+      */
     ];
+    if (commonDef) typeDefs.push(commonDef);
+    if (queryDef) typeDefs.push(queryDef);
+    if (mutationDef) typeDefs.push(mutationDef);
+    if (subscriptionDef) typeDefs.push(subscriptionDef);
 
     return { resolvers: _resolvers, typeDefs };
   }
