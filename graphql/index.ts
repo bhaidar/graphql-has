@@ -5,14 +5,6 @@ import { gql } from 'apollo-server-express';
 import { Common } from '../server/helpers/common';
 import resolvers from '../server/resolvers';
 
-const baseGqlDefinition = gql`
-schema {
-  query: Query
-  mutation: Mutation
-  subscription: Subscription
-}
-`;
-
 class TypeDefs {
   private logicBasePath = './server/resolvers';
   private graphQlExtension = '.graphql';
@@ -104,20 +96,20 @@ class TypeDefs {
       }
     `;
 
-    let typeDefs = [baseGqlDefinition];
+    let typeDefs = [];
     typeDefs = [
-      ...typeDefs,
-      /*
-      commonDef,
-      queryDef,
-      mutationDef,
-      subscriptionDef,
-      */
+      gql`
+        schema {
+          ${queryDef ? 'query: Query' : ''}
+          ${mutationDef ? 'mutation: Mutation': ''}
+          ${subscriptionDef ? 'subscription: Subscription' : ''}
+        }
+        ${commonDef ? commonDef : ''}
+        ${queryDef ? queryDef : ''}
+        ${mutationDef ? mutationDef : ''}
+        ${subscriptionDef ? subscriptionDef : ''}
+      `
     ];
-    if (commonDef) typeDefs.push(commonDef);
-    if (queryDef) typeDefs.push(queryDef);
-    if (mutationDef) typeDefs.push(mutationDef);
-    if (subscriptionDef) typeDefs.push(subscriptionDef);
 
     return { resolvers: _resolvers, typeDefs };
   }
