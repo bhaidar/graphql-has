@@ -1,4 +1,4 @@
-### Apollo Seed -- a TypeScript, Express, GraphQL microservice seed based on Apollo Server
+### Apollo Seed - a TypeScript, Express, GraphQL microservice seed based on Apollo Server
 
 [![Build Status](https://travis-ci.org/marcellobarile/typescript-express-graphql-seed.svg?branch=master)](https://travis-ci.org/marcellobarile/typescript-express-graphql-seed)
 
