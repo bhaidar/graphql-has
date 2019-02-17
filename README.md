@@ -39,7 +39,7 @@ const servUrl = getEndpoint('foobar-service');
 1. Webpack 4 + TypeScript 3
 2. Express 4 + ejs
 3. Apollo Server 2
-4. GraphQL
+4. GraphQL 14
 6. Lodash
 7. Request Promise
 5. NSP - Node Security Platform
