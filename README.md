@@ -1,4 +1,4 @@
-### TypeScript, Express, GraphQL microservice seed
+### Apollo Seed -- a TypeScript, Express, GraphQL microservice seed based on Apollo Server
 
 [![Build Status](https://travis-ci.org/marcellobarile/typescript-express-graphql-seed.svg?branch=master)](https://travis-ci.org/marcellobarile/typescript-express-graphql-seed)
 
@@ -6,7 +6,7 @@
 ---
 1. Webpack 4 + TypeScript 2.8
 2. Express 4 + ejs
-3. Apollo Server
+3. Apollo Server 2
 4. GraphQL / GraphQLi
 6. Lodash
 7. Request Promise
