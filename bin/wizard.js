@@ -165,7 +165,7 @@ inquirer.prompt(actionsQuestion).then(answers => {
 
     // Check NPM vuln.
     say("NPM dependencies are going to be analyzed right now...");
-    executeNpmScript('check-vuln');
+    executeNpmScript('audit');
 
   } else {
 
