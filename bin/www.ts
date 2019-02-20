@@ -3,6 +3,7 @@
  */
 import { app } from '../app';
 import { GraphQlServer } from '../server';
+import { PreInitHook, PostInitHook } from '../server/hooks';
 import { Conf } from '../config/common';
 import * as fs from 'fs';
 import * as http from 'http';
@@ -12,6 +13,8 @@ import chalk from 'chalk';
 // binding to console
 let log = debug('modern-express:server');
 log.log = console.log.bind(console);
+
+PreInitHook();
 
 const httpServer = http.createServer(app);
 GraphQlServer.createSubscription(httpServer);
@@ -58,6 +61,8 @@ httpServer.on('listening', () => {
       : `port ${addr.port}`
   );
   log(`Listening on ${bind}`);
+
+  PostInitHook();
 });
 
 //
