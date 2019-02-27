@@ -8,8 +8,8 @@
   },
   "scripts": {
     "help": "node ./bin/wizard.js",
-    "dev1": "npm run build:dev && cross-env NODE_TARGET_ENV=development NODE_ENV_ID=1 node build/compiled",
-    "test1": "npm run build:stage && cross-env NODE_TARGET_ENV=stage NODE_ENV_ID=1 node build/compiled",
+    "dev": "npm run build:dev && cross-env NODE_TARGET_ENV=development NODE_ENV_ID=1 node build/compiled",
+    "stage": "npm run build:stage && cross-env NODE_TARGET_ENV=stage NODE_ENV_ID=1 node build/compiled",
     "prod": "npm run build:prod && cross-env NODE_TARGET_ENV=production NODE_ENV_ID=1 node build/compiled",
     "lint": "tslint -c tslint.json 'server/**/*.{ts}'",
     "test": "npm run lint && jest",

@@ -35,8 +35,8 @@
     "getCookie": "http://fortunecookieapi.herokuapp.com/v1/cookie",
     "anotherService": {
       "default": "https://api.foo.bar",
-      "development-1": "https://dev.api.foo.bar",
-      "production-1": "https://prod.api.foo.bar"
+      "development-1": "https://dev-1.api.foo.bar",
+      "production-1": "https://prod-1.api.foo.bar"
     }
   }
 }

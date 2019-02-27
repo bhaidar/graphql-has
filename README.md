@@ -119,16 +119,12 @@ npm run build:prod
 ---
 DEV env.:
 ```
-npm run dev1
-npm run dev2
-npm run dev3
+npm run dev
 ```
 
-TEST env.:
+TRAIN env.:
 ```
-npm run test1
-npm run test2
-npm run test3
+npm run stage
 ```
 
 PROD env.:
