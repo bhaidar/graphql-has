@@ -4,6 +4,10 @@ const getEndpoint = (name: string): string => {
   const remotes = Conf.Remotes;
   const serviceConfs = remotes[name];
 
+  if (!serviceConfs) {
+    throw new Error(`Trying to access an undefined configuration (${name})`);
+  }
+
   if (typeof serviceConfs == 'string') {
     return serviceConfs;
   } else {
