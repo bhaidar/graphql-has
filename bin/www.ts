@@ -101,6 +101,6 @@ createLock();
 // Handle graceful exit
 process.stdin.resume();
 process.on('uncaughtException', onExit);
-process.on('beforeExit', removeLock);
-process.on('SIGINT', removeLock);
-process.on('SIGTERM', removeLock);
+process.on('beforeExit', onExit);
+process.on('SIGINT', onExit);
+process.on('SIGTERM', onExit);
