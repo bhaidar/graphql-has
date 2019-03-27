@@ -20,10 +20,24 @@ export default {
               });
             });
         });
+      },
+      getFortuneCookieJson(root: any, {}: any, ctx: any) {
+        console.log('Resolver:: getFortuneCookieJson');
+        const service = new FortuneCookieService();
+        return new Promise((resolve, reject) => {
+          service
+            .getOne()
+            .then((res: any) => {
+              resolve({
+                msg: res[0].fortune.message
+              });
+            });
+        });
       }
     },
   },
   query: `
     getFortuneCookie: FortuneString
+    getFortuneCookieJson: JSON
   `,
 };

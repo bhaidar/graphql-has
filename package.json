@@ -1,6 +1,6 @@
 {
   "name": "typescript-express-graphql-seed",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "TypeScript + Express + Apollo Server + Apollo Engine + GraphQL",
   "private": true,
   "directories": {
@@ -80,9 +80,10 @@
     "get-graphql-schema": "^2.1.2",
     "gql2ts": "^1.10.1",
     "graphql": "^14.1.1",
-    "graphql-cli": "^3.0.10",
+    "graphql-cli": "^3.0.11",
     "graphql-cli-generate-fragments": "^1.4.1",
     "graphql-tools": "^4.0.4",
+    "graphql-type-json": "^0.2.2",
     "inquirer": "^6.2.2",
     "lodash": "^4.17.11",
     "morgan": "^1.9.1",
