@@ -2,7 +2,7 @@
   <img alt="Node.js GraphQL Highly Automated Service" src="http://oi64.tinypic.com/2rqoeqb.jpg">
 </p>
 
-[![Build Status](https://travis-ci.org/marcellobarile/typescript-express-graphql-seed.svg?branch=master)](https://travis-ci.org/marcellobarile/typescript-express-graphql-seed)
+[![Build Status](https://travis-ci.org/marcellobarile/graphql-has.svg?branch=master)](https://travis-ci.org/marcellobarile/graphql-has)
 
 **Why Highly Automated?**
 ---
