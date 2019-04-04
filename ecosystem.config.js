@@ -5,7 +5,7 @@ module.exports = {
    */
   apps : [
     {
-      name                : 'MY-AWESOME-BFF',
+      name                : 'MY-AWESOME-GQL-API',
       script              : 'build/compiled',
       instances           : 1,
       exec_mode           : "cluster",
@@ -27,6 +27,7 @@ module.exports = {
    * Deployment section
    * http://pm2.keymetrics.io/docs/usage/deployment/
    */
+  /*
   deploy : {
     production : {
       user : 'node',
@@ -37,4 +38,5 @@ module.exports = {
       'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production'
     }
   }
+  */
 };

@@ -17,7 +17,7 @@ console.log('\n');
 // after a selection
 const actions = [
   '1) Run a *dev* instance',
-  '2) Run a *test* instance',
+  '2) Run a *train* instance',
   '3) Run a *production* instance',
   '4) Generate GraphQL schema, fragments and TS interfaces',
   '5) Execute linting on code',
@@ -124,7 +124,7 @@ inquirer.prompt(actionsQuestion).then(answers => {
     let npmScriptPrefix = '';
     switch(actionIndex) {
       case 0: env = 'development'; npmScriptPrefix = 'dev';    break;
-      case 1: env = 'stage';       npmScriptPrefix = 'test';   break;
+      case 1: env = 'stage';       npmScriptPrefix = 'stage';   break;
       case 2: env = 'production';  npmScriptPrefix = 'prod';   break;
     }
 
@@ -165,7 +165,7 @@ inquirer.prompt(actionsQuestion).then(answers => {
 
     // Check NPM vuln.
     say("NPM dependencies are going to be analyzed right now...");
-    executeNpmScript('check-vuln');
+    executeNpmScript('audit');
 
   } else {
 

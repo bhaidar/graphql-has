@@ -3,11 +3,11 @@ import { dev, test, prod } from '../../../../config/apis';
 
 class BaseConnector {
   protected cookie: string = '';
-  protected conf;
+  protected endpoints;
   protected defaultHeaders;
   constructor(cookie: string) {
     this.defaultHeaders = {};
-    this.conf = dev(process.env.TEST_ENV);
+    this.endpoints = dev(process.env.TEST_ENV);
   }
   protected constructRequestObject(url: string, body?: any, queryParams?: any, headers?: any): any {
     headers = _.assign({}, this.defaultHeaders, headers);

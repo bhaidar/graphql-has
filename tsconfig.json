@@ -1,7 +1,13 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es2015",
+    "lib": [
+      "esnext",
+      "es2018",
+    ],
+    "target": "es2018",
+    "removeComments": true,
+    "resolveJsonModule": true,
     "noImplicitAny": false,
     "sourceMap": false,
     "outDir": "build"

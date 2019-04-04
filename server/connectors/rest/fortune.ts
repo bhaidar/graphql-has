@@ -1,15 +1,18 @@
-import { BaseConnector } from "./base";
+import { BaseConnector } from './base';
 
 class FortuneCookieService extends BaseConnector {
+  private serviceName = 'getCookie';
+
   constructor() {
     super();
   }
 
-  getOne() {
-    const opts = this.constructRequestObject('http://fortunecookieapi.herokuapp.com/v1/cookie');
+  public getOne() {
+    const opts = this.constructRequestObject(
+      this.endpoints(this.serviceName)
+    );
     return this._get(opts);
   }
 }
 
-// and at the bottom, modify the export to include FortuneCookie
 export { FortuneCookieService };

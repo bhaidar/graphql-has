@@ -85,14 +85,23 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported"><a href="_config_common_.conf.html#accepteddomains" class="tsd-kind-icon">Accepted<wbr>Domains</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported"><a href="_config_common_.conf.html#defaultbffaddr" class="tsd-kind-icon">DefaultBFFAddr</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported"><a href="_config_common_.conf.html#defaultbffport" class="tsd-kind-icon">DefaultBFFPort</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported"><a href="_config_common_.conf.html#acceptedmethods" class="tsd-kind-icon">Accepted<wbr>Methods</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported"><a href="_config_common_.conf.html#appname" class="tsd-kind-icon">App<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported"><a href="_config_common_.conf.html#defaultappaddr" class="tsd-kind-icon">Default<wbr>App<wbr>Addr</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported"><a href="_config_common_.conf.html#defaultappport" class="tsd-kind-icon">Default<wbr>App<wbr>Port</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported"><a href="_config_common_.conf.html#graphqlpath" class="tsd-kind-icon">Graph<wbr>QlPath</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported"><a href="_config_common_.conf.html#optionssuccessstatus" class="tsd-kind-icon">Options<wbr>Success<wbr>Status</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported"><a href="_config_common_.conf.html#preflightcontinue" class="tsd-kind-icon">Preflight<wbr>Continue</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported"><a href="_config_common_.conf.html#remotes" class="tsd-kind-icon">Remotes</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported"><a href="_config_common_.conf.html#restpath" class="tsd-kind-icon">Rest<wbr>Path</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported"><a href="_config_common_.conf.html#serveraddr" class="tsd-kind-icon">Server<wbr>Addr</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported"><a href="_config_common_.conf.html#serverenv" class="tsd-kind-icon">Server<wbr>Env</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported"><a href="_config_common_.conf.html#serverenvid" class="tsd-kind-icon">Server<wbr>Env<wbr>Id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported"><a href="_config_common_.conf.html#serverkey" class="tsd-kind-icon">Server<wbr>Key</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported"><a href="_config_common_.conf.html#serverport" class="tsd-kind-icon">Server<wbr>Port</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported"><a href="_config_common_.conf.html#uploadmaxnumoffiles" class="tsd-kind-icon">Upload<wbr>Max<wbr>Num<wbr>OfFiles</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported"><a href="_config_common_.conf.html#viewsengine" class="tsd-kind-icon">Views<wbr>Engine</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported"><a href="_config_common_.conf.html#viewssrcpath" class="tsd-kind-icon">Views<wbr>Src<wbr>Path</a></li>
 							</ul>
 						</section>
 					</div>
@@ -103,30 +112,122 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported">
 					<a name="accepteddomains" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> Accepted<wbr>Domains</h3>
-					<div class="tsd-signature tsd-kind-icon">Accepted<wbr>Domains<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;*&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">Accepted<wbr>Domains<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;CONFS.cors.acceptedDomains</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/0c65d9d/config/common.ts#L11">config/common.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/config/common.ts#L16">config/common.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported">
-					<a name="defaultbffaddr" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> DefaultBFFAddr</h3>
-					<div class="tsd-signature tsd-kind-icon">DefaultBFFAddr<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;localhost&quot;</span></div>
+					<a name="acceptedmethods" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> Accepted<wbr>Methods</h3>
+					<div class="tsd-signature tsd-kind-icon">Accepted<wbr>Methods<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;CONFS.cors.methods</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/0c65d9d/config/common.ts#L10">config/common.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/config/common.ts#L17">config/common.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported">
-					<a name="defaultbffport" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> DefaultBFFPort</h3>
-					<div class="tsd-signature tsd-kind-icon">DefaultBFFPort<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;3000</span></div>
+					<a name="appname" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> App<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">App<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;CONFS.name</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/0c65d9d/config/common.ts#L9">config/common.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/config/common.ts#L12">config/common.ts:12</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported">
+					<a name="defaultappaddr" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> Default<wbr>App<wbr>Addr</h3>
+					<div class="tsd-signature tsd-kind-icon">Default<wbr>App<wbr>Addr<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;CONFS.defaults.addr</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/config/common.ts#L15">config/common.ts:15</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported">
+					<a name="defaultappport" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> Default<wbr>App<wbr>Port</h3>
+					<div class="tsd-signature tsd-kind-icon">Default<wbr>App<wbr>Port<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;CONFS.defaults.port</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/config/common.ts#L14">config/common.ts:14</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported">
+					<a name="graphqlpath" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> Graph<wbr>QlPath</h3>
+					<div class="tsd-signature tsd-kind-icon">Graph<wbr>QlPath<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;CONFS.graphql.path</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/config/common.ts#L21">config/common.ts:21</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported">
+					<a name="optionssuccessstatus" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> Options<wbr>Success<wbr>Status</h3>
+					<div class="tsd-signature tsd-kind-icon">Options<wbr>Success<wbr>Status<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;CONFS.cors.optionsSuccessStatus</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/config/common.ts#L19">config/common.ts:19</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported">
+					<a name="preflightcontinue" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> Preflight<wbr>Continue</h3>
+					<div class="tsd-signature tsd-kind-icon">Preflight<wbr>Continue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;CONFS.cors.preflightContinue</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/config/common.ts#L18">config/common.ts:18</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported">
+					<a name="remotes" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> Remotes</h3>
+					<div class="tsd-signature tsd-kind-icon">Remotes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> =&nbsp;CONFS.remotes</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/config/common.ts#L25">config/common.ts:25</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>get<wbr>Cookie<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>another<wbr>Service<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h5>
+								<ul class="tsd-parameters">
+									<li class="tsd-parameter">
+										<h5>default<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+									</li>
+									<li class="tsd-parameter">
+										<h5>development-<wbr>1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+									</li>
+									<li class="tsd-parameter">
+										<h5>production-<wbr>1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported">
+					<a name="restpath" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> Rest<wbr>Path</h3>
+					<div class="tsd-signature tsd-kind-icon">Rest<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;CONFS.rest.path</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/config/common.ts#L20">config/common.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -136,7 +237,7 @@
 					<div class="tsd-signature tsd-kind-icon">Server<wbr>Addr<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/0c65d9d/config/common.ts#L3">config/common.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/config/common.ts#L7">config/common.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -146,7 +247,7 @@
 					<div class="tsd-signature tsd-kind-icon">Server<wbr>Env<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/0c65d9d/config/common.ts#L5">config/common.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/config/common.ts#L9">config/common.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -156,7 +257,7 @@
 					<div class="tsd-signature tsd-kind-icon">Server<wbr>Env<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/0c65d9d/config/common.ts#L6">config/common.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/config/common.ts#L10">config/common.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -166,7 +267,7 @@
 					<div class="tsd-signature tsd-kind-icon">Server<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/0c65d9d/config/common.ts#L2">config/common.ts:2</a></li>
+							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/config/common.ts#L6">config/common.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -176,17 +277,37 @@
 					<div class="tsd-signature tsd-kind-icon">Server<wbr>Port<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/0c65d9d/config/common.ts#L4">config/common.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/config/common.ts#L8">config/common.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported">
 					<a name="uploadmaxnumoffiles" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> Upload<wbr>Max<wbr>Num<wbr>OfFiles</h3>
-					<div class="tsd-signature tsd-kind-icon">Upload<wbr>Max<wbr>Num<wbr>OfFiles<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;25</span></div>
+					<div class="tsd-signature tsd-kind-icon">Upload<wbr>Max<wbr>Num<wbr>OfFiles<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;CUSTOM_CONFS.maxUploadFiles</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/0c65d9d/config/common.ts#L8">config/common.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/config/common.ts#L13">config/common.ts:13</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported">
+					<a name="viewsengine" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> Views<wbr>Engine</h3>
+					<div class="tsd-signature tsd-kind-icon">Views<wbr>Engine<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;CONFS.views.engine</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/config/common.ts#L22">config/common.ts:22</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported">
+					<a name="viewssrcpath" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> Views<wbr>Src<wbr>Path</h3>
+					<div class="tsd-signature tsd-kind-icon">Views<wbr>Src<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;String(CONFS.views.src).replace(&#x27;__root&#x27;, root.toString())</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/marcellobarile/typescript-express-graphql-seed/blob/fe68413/config/common.ts#L23">config/common.ts:23</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -198,71 +319,8 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class="label tsd-is-external">
-						<span>Internals</span>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_connectors_pubsub_.html">"server/connectors/pubsub"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_connectors_rest___mocks___base_.html">"server/connectors/rest/__mocks__/base"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_connectors_rest_base_.html">"server/connectors/rest/base"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_connectors_rest_fortune_.html">"server/connectors/rest/fortune"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_errors_uploaderror_.html">"server/errors/upload<wbr>Error"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_helpers_common_.html">"server/helpers/common"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_helpers_fileutils_.html">"server/helpers/file<wbr>Utils"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_interfaces_file_type_.html">"server/interfaces/file.type"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_interfaces_mutation_type_.html">"server/interfaces/mutation.type"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_interfaces_query_type_.html">"server/interfaces/query.type"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_interfaces_subscription_type_.html">"server/interfaces/subscription.type"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_interfaces_subscriptionresult_type_.html">"server/interfaces/subscriptionresult.type"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_interfaces_upload_scalar_.html">"server/interfaces/upload.scalar"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_resolvers_resolver_.html">"server/resolvers/resolver"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_resolvers_upload_fileupload_.html">"server/resolvers/upload/file<wbr>Upload"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_routes_rest_.html">"server/routes/rest"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_schemas_schema_.html">"server/schemas/schema"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_schemas_types_index_.html">"server/schemas/types/index"</a>
-					</li>
-					<li class="label tsd-is-external">
-						<span>Externals</span>
-					</li>
 					<li class="current tsd-kind-external-module tsd-is-external">
 						<a href="../modules/_config_common_.html">"config/common"</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="../modules/_graphql_index_.html">"graphql/index"</a>
 					</li>
 				</ul>
 			</nav>
@@ -277,10 +335,31 @@
 								<a href="_config_common_.conf.html#accepteddomains" class="tsd-kind-icon">Accepted<wbr>Domains</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported">
-								<a href="_config_common_.conf.html#defaultbffaddr" class="tsd-kind-icon">DefaultBFFAddr</a>
+								<a href="_config_common_.conf.html#acceptedmethods" class="tsd-kind-icon">Accepted<wbr>Methods</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported">
-								<a href="_config_common_.conf.html#defaultbffport" class="tsd-kind-icon">DefaultBFFPort</a>
+								<a href="_config_common_.conf.html#appname" class="tsd-kind-icon">App<wbr>Name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported">
+								<a href="_config_common_.conf.html#defaultappaddr" class="tsd-kind-icon">Default<wbr>App<wbr>Addr</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported">
+								<a href="_config_common_.conf.html#defaultappport" class="tsd-kind-icon">Default<wbr>App<wbr>Port</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported">
+								<a href="_config_common_.conf.html#graphqlpath" class="tsd-kind-icon">Graph<wbr>QlPath</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported">
+								<a href="_config_common_.conf.html#optionssuccessstatus" class="tsd-kind-icon">Options<wbr>Success<wbr>Status</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported">
+								<a href="_config_common_.conf.html#preflightcontinue" class="tsd-kind-icon">Preflight<wbr>Continue</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported">
+								<a href="_config_common_.conf.html#remotes" class="tsd-kind-icon">Remotes</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported">
+								<a href="_config_common_.conf.html#restpath" class="tsd-kind-icon">Rest<wbr>Path</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported">
 								<a href="_config_common_.conf.html#serveraddr" class="tsd-kind-icon">Server<wbr>Addr</a>
@@ -299,6 +378,12 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported">
 								<a href="_config_common_.conf.html#uploadmaxnumoffiles" class="tsd-kind-icon">Upload<wbr>Max<wbr>Num<wbr>OfFiles</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported">
+								<a href="_config_common_.conf.html#viewsengine" class="tsd-kind-icon">Views<wbr>Engine</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-external tsd-is-not-exported">
+								<a href="_config_common_.conf.html#viewssrcpath" class="tsd-kind-icon">Views<wbr>Src<wbr>Path</a>
 							</li>
 						</ul>
 					</li>

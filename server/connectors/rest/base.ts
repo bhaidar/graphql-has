@@ -2,9 +2,7 @@ import * as _ from 'lodash';
 import * as request from 'request-promise-native';
 import * as legacyRequest from 'request';
 
-import { Conf } from '../../../config/common';
-import { Common } from '../../helpers/common';
-import { dev, test, prod } from '../../../config/apis';
+import { getEndpoint } from '../../../config/apis';
 
 /**
  * Base class to be used for GraphQL connectors.
@@ -16,7 +14,7 @@ import { dev, test, prod } from '../../../config/apis';
  */
 class BaseConnector {
   protected cookie: string = '';
-  protected conf;
+  protected endpoints = getEndpoint;
   protected defaultHeaders;
 
   constructor(cookie?: string) {
@@ -26,22 +24,12 @@ class BaseConnector {
       'accept': 'application/json, text/plain, */*',
       'accept-encoding': 'gzip, deflate, br',
       'content-type': 'application/json',
-      'cookie': this.cookie
     };
-
-    const env = Conf.ServerEnv;
-    const envIndex = Conf.ServerEnvId;
-    switch (env) {
-      default:
-      case Common.constants.ENV_DEV:
-        this.conf = dev(envIndex);
-        break;
-      case Common.constants.ENV_TEST:
-        this.conf = test(envIndex);
-        break;
-      case Common.constants.ENV_PROD:
-        this.conf = prod(envIndex);
-        break;
+    if (typeof this.cookie !== 'undefined' && this.cookie !== '') {
+      this.defaultHeaders = {
+        ...this.defaultHeaders,
+        cookie: this.cookie
+      };
     }
   }
 

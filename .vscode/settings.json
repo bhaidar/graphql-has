@@ -4,5 +4,9 @@
   "editor.tabSize": 2,
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
-  "tslint.exclude": ["**/*.spec.ts","**/*.d.ts"]
+  "tslint.exclude": [
+    "**/*.spec.ts",
+    "**/*.d.ts"
+  ],
+  "typescript.tsdk": "node_modules\\typescript\\lib"
 }

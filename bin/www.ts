@@ -1,37 +1,29 @@
 /**
  * Module dependencies.
  */
-import { app, schema } from '../app';
+import { app } from '../app';
+import { GraphQlServer } from '../server';
+import { PreInitHook, PostInitHook } from '../server/hooks';
 import { Conf } from '../config/common';
-import { SubscriptionServer } from 'subscriptions-transport-ws';
-import { execute, subscribe } from 'graphql';
 import * as fs from 'fs';
 import * as http from 'http';
 import * as debug from 'debug';
-import * as inquirer from 'inquirer';
 import chalk from 'chalk';
 
 // binding to console
 let log = debug('modern-express:server');
 log.log = console.log.bind(console);
 
-const server = http.createServer(app);
-server.listen(Conf.ServerPort, Conf.ServerAddr, () => {
-  // WebSocket Subscription server
-  new SubscriptionServer({
-    execute,
-    subscribe,
-    schema,
-  }, {
-    server: server,
-    path: '/subscriptions',
-  });
-});
+PreInitHook();
+
+const httpServer = http.createServer(app);
+GraphQlServer.createSubscription(httpServer);
+httpServer.listen(Conf.ServerPort, Conf.ServerAddr);
 
 //
 // EVENTS
 //
-server.on('error', (error: any) => {
+httpServer.on('error', (error: any) => {
   /**
    * Event listener for HTTP server "error" event.
    */
@@ -39,29 +31,38 @@ server.on('error', (error: any) => {
     throw error;
   }
 
-  const bind = typeof Conf.ServerPort === 'string' ? `Pipe ${Conf.ServerPort}` : `Port ${Conf.ServerPort}`;
+  const bind = typeof Conf.ServerPort === 'string'
+    ? `Pipe ${Conf.ServerPort}`
+    : `Port ${Conf.ServerPort}`;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
+      console.error(`${bind} requires elevated privileges`);
       process.exit(1);
       break;
     case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
+      console.error(`${bind} is already in use`);
       process.exit(1);
       break;
     default:
       throw error;
   }
 });
-server.on('listening', () => {
+
+httpServer.on('listening', () => {
   /**
    * Event listener for HTTP server "listening" event.
    */
-  const addr = server.address();
-  const bind = (typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`);
+  const addr = httpServer.address();
+  const bind = (
+    typeof addr === 'string'
+      ? `pipe ${addr}`
+      : `port ${addr.port}`
+  );
   log(`Listening on ${bind}`);
+
+  PostInitHook();
 });
 
 //
@@ -86,7 +87,7 @@ const removeLock = () => {
 //
 const welcomeMessage = ` => Service up and running <= `;
 const serverAddressMessage = ` (HTTP + WS) Listening on http://${Conf.ServerAddr}:${Conf.ServerPort} `;
-const serverKeyMessage = ` [Service key] ${Conf.ServerKey} `;
+const serverKeyMessage = ` [Service ID] ${Conf.ServerKey} `;
 console.log('\n');
 console.log(chalk.white.bgMagentaBright('                                          '));
 console.log(chalk.white.bgMagentaBright.bold(`     ${welcomeMessage}       `));
@@ -100,6 +101,6 @@ createLock();
 // Handle graceful exit
 process.stdin.resume();
 process.on('uncaughtException', onExit);
-process.on('beforeExit', removeLock);
-process.on('SIGINT', removeLock);
-process.on('SIGTERM', removeLock);
+process.on('beforeExit', onExit);
+process.on('SIGINT', onExit);
+process.on('SIGTERM', onExit);

@@ -1,0 +1,42 @@
+{
+  "id": "foobar",
+  "name": "FooBar",
+  "targetDomain": "https://api.foobar.com",
+  "defaults": {
+    "port": 3000,
+    "addr": "localhost"
+  },
+  "graphql": {
+    "path": "/graphql"
+  },
+  "rest": {
+    "path": "/api"
+  },
+  "views": {
+    "src": "__root/server/views/",
+    "engine": "ejs"
+  },
+  "cors": {
+    "acceptedDomains": [
+      "*"
+    ],
+    "methods": [
+      "GET",
+      "HEAD",
+      "PUT",
+      "PATCH",
+      "POST",
+      "DELETE"
+    ],
+    "preflightContinue": false,
+    "optionsSuccessStatus": 200
+  },
+  "remotes": {
+    "getCookie": "http://fortunecookieapi.herokuapp.com/v1/cookie",
+    "anotherService": {
+      "default": "https://api.foo.bar",
+      "development-1": "https://dev-1.api.foo.bar",
+      "production-1": "https://prod-1.api.foo.bar"
+    }
+  }
+}
