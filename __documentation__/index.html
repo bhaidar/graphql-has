@@ -64,19 +64,33 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<h3 id="node-js-graphql-has-highly-automated-service-">Node.js GraphQL HAS (Highly Automated Service)</h3>
-				<p><a href="https://travis-ci.org/marcellobarile/typescript-express-graphql-seed"><img src="https://travis-ci.org/marcellobarile/typescript-express-graphql-seed.svg?branch=master" alt="Build Status"></a></p>
+				<p align="center">
+					<img alt="Node.js GraphQL Highly Automated Service" src="http://oi64.tinypic.com/2rqoeqb.jpg">
+				</p>
+				<p><a href="https://travis-ci.org/marcellobarile/graphql-has"><img src="https://travis-ci.org/marcellobarile/graphql-has.svg?branch=master" alt="Build Status"></a></p>
 				<h2 id="why-highly-automated-"><strong>Why Highly Automated?</strong></h2>
-				<p>1) GraphQL and resolvers self-composition
-				(!!!) TO BE DONE</p>
-				<p>2) Easily configurable
-				(!!!) TO BE DONE</p>
-				<h2 id="tech-stack-"><strong>Tech. stack:</strong></h2>
+				<p><strong>GraphQL and resolvers self-composition</strong></p>
+				<p>The approach used in this solution is near to the &quot;code-first&quot; one. You will have to put both resolving functions and definitions in the same file and, only during the application bootstrap, the GraphQL will be automatically generated (only when changes are applied). Even if there is a pre-defined structure for such files, you are still free to adopt your own way to organize them (further details below).</p>
+				<p>:blush: <em>Tip: If you want to manually generate the GraphQL schema, just run <code>npm run prepare-graphql</code></em></p>
+				<p><strong>Easily configurable</strong></p>
+				<p>The application does support two configuration files, both located in the root directory.
+				The &#39;serviceconfig.custom.json&#39; is (obviously) used for custom configurations; for accessing the configurations from your TS files, there is a &quot;Conf&quot; class, placed under &#39;config/common.ts&#39;, that can be used.</p>
+				<p>:blue_book: <strong>Special case:</strong> How to access configurations for remotes services</p>
+				<p><em>Note: The conf. helper will automatically derive the ENV to be used. You don&#39;t need to specify it.</em></p>
+				<pre><code><span class="hljs-comment">// ...</span>
+
+<span class="hljs-keyword">import</span> { getEndpoint } <span class="hljs-keyword">from</span> <span class="hljs-string">'../../../config/apis'</span>;
+
+<span class="hljs-comment">// ...</span>
+
+<span class="hljs-keyword">const</span> servUrl = getEndpoint(<span class="hljs-string">'foobar-service'</span>);
+
+<span class="hljs-comment">// ...</span></code></pre><h2 id="tech-stack-"><strong>Tech. stack:</strong></h2>
 				<ol>
 					<li>Webpack 4 + TypeScript 3</li>
 					<li>Express 4 + ejs</li>
 					<li>Apollo Server 2</li>
-					<li>GraphQL</li>
+					<li>GraphQL 14</li>
 					<li>Lodash</li>
 					<li>Request Promise</li>
 					<li>NSP - Node Security Platform</li>
@@ -86,43 +100,43 @@
 				<h2 id="setup"><strong>Setup</strong></h2>
 				<pre><code>npm <span class="hljs-keyword">install</span></code></pre><h2 id="first-run-after-the-setup"><strong>First run after the setup</strong></h2>
 				<p>If you are on production you just need to run the <code>npm run prod</code> command.</p>
-				<h2 id="after-having-changed-the-schema-or-graphql-definitions"><strong>After having changed the schema or GraphQL definitions</strong></h2>
-				<p>This application is capable to automatically create fragments, typescript interfaces and the schema.graphql file for you...
-					it also intercepts changes on graphql definitions and, if any, triggers the generation process during the bootstrap.
-				If you want to execute this procedure manually just run <code>npm run prepare-graphql</code></p>
 				<h2 id="graphql-schema-and-resolvers-self-composition"><strong>GraphQL schema and resolvers self-composition</strong></h2>
-				<p>(!!!) TO BE DONE</p>
+				<p>As said before, during the bootstrap, the application is capable of self-composing the GraphQL definition and registering the resolvers by looking into the &quot;resolvers&quot; folder.
+				This allows the developer(s) to have everything as tight as possible, without spreading information over the solution.</p>
 				<h2 id="resolvers-and-definitions-everything-in-one-place"><strong>Resolvers and definitions: everything in one place</strong></h2>
-				<p>(!!!) TO BE DONE</p>
+				<p>Resolvers and definitions cohesists in the same file; these files are separated in contextual folders (mutations, queries, subscriptions, types) for the sake of order, though, you are free to rearrange them as you prefer (just remember to change the export in the index.ts file under &#39;resolvers&#39;).
+				You can also put queries, mutations, and different entities in general, in the same file if you prefer so.</p>
+				<p><strong>Single resolver</strong>
+				<img src="http://i66.tinypic.com/fcsnxw.jpg" /></p>
+				<p><strong>Multiple resolvers</strong>
+				<img src="http://i67.tinypic.com/96kg8y.jpg" /></p>
 				<h2 id="extending-the-graphql-context"><strong>Extending the GraphQL context</strong></h2>
-				<p>(!!!) TO BE DONE</p>
+				<p>In the GraphQL world, a context is an object (or a function) that returns an object which will be shared across all the resolvers.
+				Under the &#39;server/context&#39; folder, there is the file that exports the custom context object where you can add the properties that your solution does need.</p>
 				<h2 id="shaping-and-expanding-the-graphql-response"><strong>Shaping and expanding the GraphQL response</strong></h2>
-				<p>(!!!) TO BE DONE</p>
+				<p>The GraphQL response can be re-shaped or expanded using a custom function returning the new response.
+				You can find it under &#39;server/extensions&#39;.</p>
 				<h2 id="adding-graphql-middlewares"><strong>Adding GraphQL middlewares</strong></h2>
-				<p>(!!!) TO BE DONE</p>
+				<p>For the Express framework, middleware functions are functions that have access to the request object (req), the response object (res), and the next middleware function in the application’s request-response cycle. The next middleware function is commonly denoted by a variable named next.
+					Our custom middleware functions can be defined in the index.ts file under &#39;server/middlewares&#39;.
+				Please note that it is an array of functions. :-)</p>
 				<h2 id="working-with-custom-validation-rules"><strong>Working with custom validation rules</strong></h2>
-				<p>(!!!) TO BE DONE</p>
+				<p>The so called &quot;validation rules&quot; are additional GraphQL validations to be applied to client-specified queries. You can find the array containing them under &#39;server/validationRules&#39;.</p>
+				<p>For further information (default rules already applied <a href="https://github.com/graphql/graphql-js/tree/master/src/validation/rules">https://github.com/graphql/graphql-js/tree/master/src/validation/rules</a></p>
 				<h2 id="about-autogenerated-interfaces"><strong>About autogenerated interfaces</strong></h2>
-				<p>It is important, after having added or changed something to the GraphQL definitions, to generate the interfaces before using them to implements our custom classes.
-				To do so, you can run/restart the server immediately after or use the wizard (<code>npm help</code>).</p>
-				<p>The application will expose two endpoints to download types and interfaces (&#39;{rest_endpoint}/types&#39; and &#39;{rest_endpoint}/interfaces&#39;).
-				You can also share these interfaces + fragments with UI WebApps.</p>
+				<p>It is important, after having added or changed something to the GraphQL definitions, to generate the interfaces before using them in the custom classes.
+				To do so, the server shall be manually run/restarted right after that.</p>
+				<p>The application exposes two endpoints to download types and interfaces (<code>{rest_endpoint}/types</code> and <code>{rest_endpoint}/interfaces</code>).</p>
 				<h2 id="run-builds"><strong>Run Builds</strong></h2>
 				<pre><code>npm <span class="hljs-keyword">run</span><span class="bash"> build:dev</span></code></pre><pre><code>npm <span class="hljs-keyword">run</span><span class="bash"> build:stage</span></code></pre><pre><code>npm <span class="hljs-keyword">run</span><span class="bash"> build:prod</span></code></pre><h2 id="run-application-locally"><strong>Run Application locally</strong></h2>
 				<p>DEV env.:</p>
-				<pre><code>npm <span class="hljs-keyword">run</span><span class="bash"> dev1
-</span>npm <span class="hljs-keyword">run</span><span class="bash"> dev2
-</span>npm <span class="hljs-keyword">run</span><span class="bash"> dev3</span></code></pre><p>TEST env.:</p>
-				<pre><code>npm <span class="hljs-keyword">run</span><span class="bash"> test1
-</span>npm <span class="hljs-keyword">run</span><span class="bash"> test2
-</span>npm <span class="hljs-keyword">run</span><span class="bash"> test3</span></code></pre><p>PROD env.:</p>
+				<pre><code>npm <span class="hljs-keyword">run</span><span class="bash"> dev</span></code></pre><p>TRAIN env.:</p>
+				<pre><code>npm <span class="hljs-keyword">run</span><span class="bash"> stage</span></code></pre><p>PROD env.:</p>
 				<pre><code>npm <span class="hljs-keyword">run</span><span class="bash"> prod</span></code></pre><h2 id="graphql-to-typescript-autogenerate-schema-types-fragments-and-ts-interfaces"><strong>GraphQL to TypeScript - autogenerate schema, types, fragments and TS interfaces</strong></h2>
 				<pre><code>npm <span class="hljs-built_in">run</span> <span class="hljs-built_in">prepare</span>-graphql</code></pre><h2 id="manual-vulnerability-check"><strong>Manual vulnerability check</strong></h2>
 				<pre><code>npm <span class="hljs-keyword">run</span><span class="bash"> check-vuln</span></code></pre><h2 id="run-tests"><strong>Run Tests</strong></h2>
 				<pre><code>npm <span class="hljs-keyword">run</span><span class="bash"> <span class="hljs-built_in">test</span></span></code></pre><h2 id="prod-pm2-first-run"><strong>Prod. PM2 first run</strong></h2>
 				<pre><code>npm <span class="hljs-built_in">run</span> pm2:prod:<span class="hljs-keyword">first</span>-<span class="hljs-built_in">run</span></code></pre><p>Remember to run <code>pm2 save</code> to dump the processes list</p>
-				<h2 id="manually-install-typings"><strong>Manually install typings</strong></h2>
-				<p>Even if deprecated, execute <code>npm run install-typings</code> to manually install typings</p>
 				<h2 id="generate-documentation"><strong>Generate documentation</strong></h2>
 				<p><code>npm run docs</code> to automatically generate documentation, <code>npm run docs:clean</code> to remove it</p>
 				<h2 id="structure"><strong>Structure</strong></h2>
@@ -209,6 +223,15 @@
 						<a href="modules/_server_helpers_fileutils_.html">"server/helpers/file<wbr>Utils"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="modules/_server_hooks_index_.html">"server/hooks/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_server_hooks_postinit_.html">"server/hooks/post<wbr>Init"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_server_hooks_preinit_.html">"server/hooks/pre<wbr>Init"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="modules/_server_index_.html">"server/index"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -243,6 +266,9 @@
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_server_resolvers_types_index_.html">"server/resolvers/types/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_server_resolvers_types_json_.html">"server/resolvers/types/json"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_server_routes_rest_.html">"server/routes/rest"</a>
